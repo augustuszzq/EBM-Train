@@ -1,7 +1,11 @@
 .gitignore
+.pytest_cache/.gitignore
+.pytest_cache/CACHEDIR.TAG
+.pytest_cache/README.md
+.pytest_cache/v/cache/lastfailed
+.pytest_cache/v/cache/nodeids
 README.md
 REPO_FILELIST.txt
-__init__.py
 configs/imagenet32_ablation.yaml
 configs/imagenet32_ddp_strict.yaml
 configs/imagenet32_drl_ddp_k100.yaml
@@ -83,6 +87,7 @@ launchers/README.md
 launchers/current/run_hsn.sh
 launchers/current/run_hsn_baseline.sh
 launchers/current/run_hsn_pipeline.sh
+polaris_ebm/__init__.py
 provenance/README.md
 provenance/excluded_binary_artifacts.txt
 provenance/runs_final_bundle/README.md
@@ -818,6 +823,7 @@ provenance/runs_long_k_scaling/summaries/long_k_resume_attempts.csv
 provenance/runs_long_k_scaling/summaries/long_k_wallclock_summary.csv
 scripts/README.md
 scripts/__init__.py
+scripts/__pycache__/__init__.cpython-310.pyc
 scripts/current/__init__.py
 scripts/current/ablation_500k_manifest.py
 scripts/current/ablation_common.py
@@ -917,6 +923,9 @@ scripts/current/watch_long_k_multinode_300k.sh
 scripts/current/watch_long_k_multinode_sweep.sh
 scripts/current/watch_long_k_overhead_attribution_submit.sh
 scripts/current/watch_long_k_successors.sh
+tests/__pycache__/test_drl_resnet_energy.cpython-310-pytest-9.0.2.pyc
+tests/__pycache__/test_long_k_scaling_manifest.cpython-310-pytest-9.0.2.pyc
+tests/__pycache__/test_mode_a_contract.cpython-310-pytest-9.0.2.pyc
 tests/test_ablation_500k_manifest.py
 tests/test_ablation_eval_launchers.py
 tests/test_ablation_phase2_support.py
