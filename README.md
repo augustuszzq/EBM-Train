@@ -12,6 +12,14 @@ The project studies completion-aware negative-energy objectives for image
 energy-based models (EBMs), and strict multi-GPU pipeline execution as a
 systems implementation of the same objective.
 
+If this is your first time reading the repository, start with:
+
+- `docs/START_HERE.md`
+- `docs/CODE_MAP.md`
+- `docs/SCRIPT_INDEX.md`
+- `docs/ACTIVE_EXPERIMENTS.md`
+- `docs/DRL_QUICKSTART.md` for clone-and-run DRL setup on another server
+
 The central training objective is:
 
 ```text
@@ -67,6 +75,9 @@ Large generated run directories are not included. The original working tree
 contained many `runs_*` directories with checkpoints and image artifacts; this
 repository only keeps lightweight provenance needed for traceability.
 
+For a first-reader walkthrough, see `docs/START_HERE.md`. For a script-by-script
+classification of `scripts/current/`, see `docs/SCRIPT_INDEX.md`.
+
 ## Core Source Files
 
 Current CIFAR training:
@@ -108,6 +119,11 @@ ImageNet-32 and DRL-style external validation:
 - `scripts/current/ebm_train_imagenet32_drl_single.py`
 - `scripts/current/eval_imagenet32_fid.py`
 - `scripts/current/eval_imagenet32_conditional_acc.py`
+- `scripts/current/eval_generate_imagenet32_drl.py`
+- `scripts/current/eval_imagenet32_drl_local.sh`
+- `scripts/current/setup_drl_env.sh`
+- `scripts/current/materialize_imagenet32_local.sh`
+- `scripts/current/run_imagenet32_drl_smoke_local.sh`
 
 ## Current Experiment Ledgers
 
@@ -177,17 +193,33 @@ Important status:
 - Pipeline 20k gates remain incomplete and should be treated as external
   validation work, not current CIFAR paper evidence.
 
+For clone-and-run setup on another server, see `docs/DRL_QUICKSTART.md`.
+
 ## Typical Local Validation
 
 The clean repo is primarily a source and provenance snapshot. It does not
 include datasets or checkpoints. Basic syntax validation is still useful:
 
+Use Python 3.10 or newer. On Polaris login nodes, the default `python3` may be
+too old. A known working interpreter is:
+
 ```bash
-python3 -m py_compile scripts/current/*.py
+export PY=/home/kevienzzq/.conda/envs/llm-env/bin/python
+export OPENBLAS_NUM_THREADS=1
+export OMP_NUM_THREADS=1
+export MKL_NUM_THREADS=1
+
+PYTHONPATH=. "$PY" -m py_compile scripts/current/*.py polaris_ebm/__init__.py
 bash -n launchers/current/run_hsn.sh \
   launchers/current/run_hsn_baseline.sh \
-  launchers/current/run_hsn_pipeline.sh
-pytest tests/test_mode_a_contract.py tests/test_drl_resnet_energy.py -q
+  launchers/current/run_hsn_pipeline.sh \
+  scripts/current/*.sh \
+  scripts/current/*.pbs
+PYTHONPATH=. "$PY" -m pytest \
+  tests/test_mode_a_contract.py \
+  tests/test_drl_resnet_energy.py \
+  tests/test_long_k_scaling_manifest.py \
+  -q
 ```
 
 Full training requires the Polaris environment, dataset paths, and PBS account
@@ -216,4 +248,3 @@ Excluded:
 
 See `provenance/excluded_binary_artifacts.txt` for the binary artifact scan
 performed during export.
-

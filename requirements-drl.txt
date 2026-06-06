@@ -1,0 +1,12 @@
+torch>=2.1
+torchvision>=0.16
+numpy
+scipy
+pandas
+pillow
+pyyaml
+tqdm
+matplotlib
+scikit-learn
+datasets>=2.18
+torch-fidelity>=0.3

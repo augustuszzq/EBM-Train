@@ -3,6 +3,11 @@
 This file gives collaborators a short path from scientific question to source
 file.
 
+For a first-reader path, see `docs/START_HERE.md`. For a full classification of
+`scripts/current/`, see `docs/SCRIPT_INDEX.md`. For current experiment-ledger
+boundaries, see `docs/ACTIVE_EXPERIMENTS.md`. For clone-and-run DRL setup, see
+`docs/DRL_QUICKSTART.md`.
+
 ## Method Semantics
 
 The method is defined by a completion-aware weighted negative-energy objective:
@@ -120,4 +125,3 @@ Current HSN launch wrappers:
 - `launchers/current/run_hsn_pipeline.sh`
 
 Archive launchers are intentionally excluded from this clean repo.
-

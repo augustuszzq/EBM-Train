@@ -1,0 +1,22 @@
+name: ebm-train
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pytorch>=2.1
+  - torchvision>=0.16
+  - pytorch-cuda=12.1
+  - numpy
+  - scipy
+  - pandas
+  - pillow
+  - pyyaml
+  - tqdm
+  - matplotlib
+  - scikit-learn
+  - pip:
+      - datasets>=2.18
+      - torch-fidelity>=0.3
