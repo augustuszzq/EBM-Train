@@ -1,0 +1,21 @@
+benchmark:
+  name: cifar10
+  conditional: false
+  image_size: 32
+  data_root: /eagle/lc-mpi/Zhiqing/ebm/data/cifar10
+  split_train: train
+  split_val: train
+train:
+  steps: 300000
+  batch_size: 512
+  K: 1600
+  lr: 1e-4
+  step_size: 0.000625
+pipeline:
+  pipe_stages: 16
+  weight_mode: uniform
+  stage_slices: [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100]
+m1_300k_continuation:
+  source_exp_id: S16_pipe_P16_equal_K1600_b512_s20k_seed1
+  source_checkpoint: 
+  objective_note: weights are applied to negative energy scalars, not images

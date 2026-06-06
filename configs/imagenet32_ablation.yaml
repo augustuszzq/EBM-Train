@@ -1,0 +1,37 @@
+benchmark:
+  name: imagenet32
+  conditional: true
+  num_classes: 1000
+  image_size: 32
+  data_root: ./data/imagenet32
+  split_train: train
+  split_val: val
+
+model:
+  family: ebm_conv
+  n_f: 96
+  conditioning: projection
+
+train:
+  steps: 20000
+  batch_size: 128
+  K: 100
+  lr: 0.0001
+
+pipeline:
+  pipe_stages: 4
+  weight_mode: last2_beta
+  last2_beta: 0.01
+  stage_weights: [0.0, 0.0, 0.01, 0.99]
+
+ablation:
+  beta_values: [0.005, 0.01, 0.02, 0.03, 0.05]
+  stage_values: [2, 4, 8]
+  k_values: [25, 50, 100, 150, 200]
+  epsilon_values: [0.01, 0.02, 0.05, 0.1]
+  lr_values: [0.0001, 0.00005, 0.000025]
+
+eval:
+  num_images: 50000
+  images_per_class: 50
+  classifier_metric: imagenet_top1

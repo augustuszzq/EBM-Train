@@ -1,0 +1,16 @@
+benchmark:
+  name: cifar10
+  data_mode: synthetic
+  uses_drl_backbone: false
+  uses_imagenet32: false
+microbench:
+  mode: ddp_train_only
+  K: 400
+  steps: 2000
+  warmup_steps: 50
+  batch_size: 64
+  local_batch: 8
+  step_size: 0.0025
+  noise_std: 0.01
+  langevin_sign: 1.0
+  purpose: split K400 end-to-end time into DDP train-only and sampling-only components

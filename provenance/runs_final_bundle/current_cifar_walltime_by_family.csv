@@ -1,0 +1,37 @@
+phase_group,family_id,horizon_steps,K,regime_variants,stage_count,weighting,train_mode,gpu_count,n_seeds,seeds,mean_walltime_hours,std_walltime_hours,min_walltime_hours,max_walltime_hours,mean_gpu_hours,std_gpu_hours,mean_hours_per_100k_steps
+O1,single_P16_deepest,300000,100,single_emulation,16,deepest,single_pipe_emul,1,1,1,10.541944,0.000000,10.541944,10.541944,10.541944,0.000000,3.513981
+O1,single_P16_equal,300000,100,single_emulation,16,equal,single_pipe_emul,1,1,1,10.520833,0.000000,10.520833,10.520833,10.520833,0.000000,3.506944
+O1,single_P1_terminal,300000,100,single_strict,1,terminal,single_fullk,1,1,1,8.305833,0.000000,8.305833,8.305833,8.305833,0.000000,2.768611
+O1,single_P2_deepest,300000,100,single_emulation,2,deepest,single_pipe_emul,1,1,1,8.458611,0.000000,8.458611,8.458611,8.458611,0.000000,2.819537
+O1,single_P2_equal,300000,100,single_emulation,2,equal,single_pipe_emul,1,1,1,8.494167,0.000000,8.494167,8.494167,8.494167,0.000000,2.831389
+O1,single_P4_deepest,300000,100,single_emulation,4,deepest,single_pipe_emul,1,1,1,8.746111,0.000000,8.746111,8.746111,8.746111,0.000000,2.915370
+O1,single_P4_equal,300000,100,single_emulation,4,equal,single_pipe_emul,1,1,1,8.758889,0.000000,8.758889,8.758889,8.758889,0.000000,2.919630
+O1,single_P8_deepest,300000,100,single_emulation,8,deepest,single_pipe_emul,1,1,1,9.339722,0.000000,9.339722,9.339722,9.339722,0.000000,3.113241
+O1,single_P8_equal,300000,100,single_emulation,8,equal,single_pipe_emul,1,1,1,9.107778,0.000000,9.107778,9.107778,9.107778,0.000000,3.035926
+O2,ddp_P1_terminal,300000,100,ddp_strict,1,terminal,ddp_fullk,4,1,1,8.388889,0.000000,8.388889,8.388889,33.555556,0.000000,2.796296
+O2,pipe_P16_deepest,300000,100,strict_pipeline,16,deepest,pipe_strict,16,1,1,23.533889,0.000000,23.533889,23.533889,376.542222,0.000000,7.844630
+O2,pipe_P16_equal,300000,100,strict_pipeline,16,equal,pipe_strict,16,1,1,22.732778,0.000000,22.732778,22.732778,363.724444,0.000000,7.577593
+O2,pipe_P2_deepest,300000,100,strict_pipeline,2,deepest,pipe_strict,2,1,1,4.951389,0.000000,4.951389,4.951389,9.902778,0.000000,1.650463
+O2,pipe_P2_equal,300000,100,strict_pipeline,2,equal,pipe_strict,2,1,1,4.920000,0.000000,4.920000,4.920000,9.840000,0.000000,1.640000
+O2,pipe_P4_deepest,300000,100,strict_pipeline,4,deepest,pipe_strict,4,1,1,3.593333,0.000000,3.593333,3.593333,14.373333,0.000000,1.197778
+O2,pipe_P4_equal,300000,100,strict_pipeline,4,equal,pipe_strict,4,1,1,3.551389,0.000000,3.551389,3.551389,14.205556,0.000000,1.183796
+O2,pipe_P8_deepest,300000,100,strict_pipeline,8,deepest,pipe_strict,8,1,1,19.687500,0.000000,19.687500,19.687500,157.500000,0.000000,6.562500
+O2,pipe_P8_equal,300000,100,strict_pipeline,8,equal,pipe_strict,8,1,1,3.201111,0.000000,3.201111,3.201111,25.608889,0.000000,1.067037
+O3,ddp_P1_terminal,300000,100,ddp_strict,1,terminal,ddp_fullk,4,4,2 3 4 5,8.377292,0.019496,8.359722,8.405000,33.509167,0.077986,2.792431
+O3,pipe_P2_equal,300000,100,strict_pipeline,2,equal,pipe_strict,2,2,2 3,4.887361,0.002161,4.885833,4.888889,9.774722,0.004321,1.629120
+O3,pipe_P4_deepest,300000,100,pipeline,4,deepest,pipe_strict,4,2,2 3,3.589167,0.011392,3.581111,3.597222,14.356667,0.045569,1.196389
+O3,pipe_P4_equal,300000,100,strict_pipeline,4,equal,pipe_strict,4,4,2 3 4 5,3.330694,0.569983,2.475833,3.628056,13.322778,2.279930,1.110231
+O3,single_P1_terminal,300000,100,single_strict,1,terminal,single_fullk,1,2,2 3,6.887083,2.053949,5.434722,8.339444,6.887083,2.053949,2.295694
+O3,single_P2_deepest,300000,100,single_emulation,2,deepest,single_pipe_emul,1,2,2 3,8.479444,0.051069,8.443333,8.515556,8.479444,0.051069,2.826481
+O3,single_P2_equal,300000,100,single_emulation,2,equal,single_pipe_emul,1,2,2 3,8.523889,0.001179,8.523056,8.524722,8.523889,0.001179,2.841296
+O4,ddp_P1_terminal,500000,100,ddp_strict,1,terminal,ddp_fullk,4,3,1 2 3,13.166204,1.300254,11.665000,13.938056,52.664815,5.201017,2.633241
+O4,pipe_P4_deepest,500000,100,strict_pipeline,4,deepest,pipe_strict,4,3,1 2 3,5.969167,0.017559,5.950833,5.985833,23.876667,0.070238,1.193833
+O4,pipe_P4_equal,500000,100,pipeline strict_pipeline,4,equal,pipe_strict,4,5,1 2 3 4 5,5.964889,0.031186,5.911944,5.994722,23.859556,0.124746,1.192978
+O4,single_P1_terminal,500000,100,single_strict,1,terminal,single_fullk,1,3,1 2 3,13.869630,0.035088,13.829167,13.891667,13.869630,0.035088,2.773926
+O4,single_P2_deepest,500000,100,single_emulation,2,deepest,single_pipe_emul,1,3,1 2 3,13.911389,0.286535,13.580556,14.080556,13.911389,0.286535,2.782278
+O4,single_P2_equal,500000,100,single_emulation,2,equal,single_pipe_emul,1,3,1 2 3,14.128148,0.045478,14.086944,14.176944,14.128148,0.045478,2.825630
+O5,ddp_P1_terminal_K100,300000,100,ddp_strict,1,terminal,ddp_fullk,4,1,1,8.403889,0.000000,8.403889,8.403889,33.615556,0.000000,2.801296
+O5,ddp_P1_terminal_K25,300000,25,ddp_strict,1,terminal,ddp_fullk,4,1,1,3.550278,0.000000,3.550278,3.550278,14.201111,0.000000,1.183426
+O5,ddp_P1_terminal_K50,300000,50,ddp_strict,1,terminal,ddp_fullk,4,1,1,5.181667,0.000000,5.181667,5.181667,20.726667,0.000000,1.727222
+O5,pipe_P4_deepest_K100,300000,100,strict_pipeline,4,deepest,pipe_strict,4,1,1,2.972778,0.000000,2.972778,2.972778,11.891111,0.000000,0.990926
+O5,pipe_P4_equal_K100,300000,100,pipeline strict_pipeline,4,equal,pipe_strict,4,2,1 2,3.577639,0.033980,3.553611,3.601667,14.310556,0.135922,1.192546

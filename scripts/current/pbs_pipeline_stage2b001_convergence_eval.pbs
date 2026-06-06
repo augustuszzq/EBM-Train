@@ -1,0 +1,300 @@
+#!/bin/bash
+#PBS -A lc-mpi
+#PBS -l select=1:system=polaris
+#PBS -l walltime=01:00:00
+#PBS -l filesystems=home:eagle
+#PBS -q debug
+#PBS -N ebm_pipe_conv
+#PBS -j oe
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [[ -n "${PROJECT_DIR:-}" ]]; then
+  PROJECT_DIR="$(cd "${PROJECT_DIR}" && pwd)"
+elif [[ -n "${PBS_O_WORKDIR:-}" && -f "${PBS_O_WORKDIR}/scripts/current/ebm_train_sync_mode_a.py" ]]; then
+  PROJECT_DIR="${PBS_O_WORKDIR}"
+else
+  PROJECT_DIR="$(cd "${SCRIPT_DIR}/../.." && pwd)"
+fi
+cd "${PROJECT_DIR}"
+
+module use /soft/modulefiles
+module load conda
+conda activate /home/kevienzzq/.conda/envs/llm-env
+
+export OPENBLAS_NUM_THREADS=1
+export OMP_NUM_THREADS=1
+export MKL_NUM_THREADS=1
+export NUMEXPR_NUM_THREADS=1
+export PYTORCH_CUDA_ALLOC_CONF="${PYTORCH_CUDA_ALLOC_CONF:-expandable_segments:True}"
+export CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-0,1,2,3}"
+
+PY=/home/kevienzzq/.conda/envs/llm-env/bin/python
+
+NPROC_PER_NODE="${NPROC_PER_NODE:-4}"
+STEPS="${STEPS:-10000}"
+SAVE_EVERY="${SAVE_EVERY:-1000}"
+BATCH_SIZE="${BATCH_SIZE:-64}"
+K="${K:-100}"
+LR="${LR:-1e-4}"
+WEIGHT_DECAY="${WEIGHT_DECAY:-0.0}"
+MAX_GRAD_NORM="${MAX_GRAD_NORM:-0.0}"
+SIGMA_PD="${SIGMA_PD:-3e-2}"
+NOISE_STD="${NOISE_STD:-1e-2}"
+STEP_SIZE="${STEP_SIZE:-1.0}"
+LANGEVIN_SIGN="${LANGEVIN_SIGN:-1.0}"
+STAGES_PER_NODE="${STAGES_PER_NODE:-4}"
+STAGE2_BETA="${STAGE2_BETA:-0.01}"
+STAGE_WEIGHT_MODE="manual"
+WARMUP_GATE="${WARMUP_GATE:-0}"
+LOG_EVERY="${LOG_EVERY:-10}"
+DEBUG_LEVEL="${DEBUG_LEVEL:-1}"
+SEED="${SEED:-1}"
+SYNC_FRESH_INIT="${SYNC_FRESH_INIT:-0}"
+DATA_DIR="${DATA_DIR:-/eagle/lc-mpi/Zhiqing/ebm/data/cifar10}"
+
+# Optional: if user sets EVAL_PLAN, it overrides defaults.
+# Format: "step:num_images,step:num_images"
+EVAL_PLAN="${EVAL_PLAN:-}"
+if [[ -z "${EVAL_PLAN}" ]]; then
+  if [[ "${STEPS}" == "10000" ]]; then
+    EVAL_PLAN="4999:1000,9999:5000"
+  elif [[ "${STEPS}" == "20000" ]]; then
+    EVAL_PLAN="4999:1000,9999:1000,19999:5000"
+  else
+    LAST_STEP=$((STEPS - 1))
+    EVAL_PLAN="${LAST_STEP}:5000"
+  fi
+fi
+
+EVAL_BATCH="${EVAL_BATCH:-256}"
+K_EVAL="${K_EVAL:-100}"
+EVAL_SEED="${EVAL_SEED:-${SEED}}"
+EVAL_DEVICE="${EVAL_DEVICE:-cuda}"
+
+RUN_ROOT_BASE="${RUN_ROOT_BASE:-/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_pipeline_strict}"
+RUN_TAG="${RUN_TAG:-orig_pipeline_strict_conv_s${STEPS}_b001_lr${LR}_ws${NPROC_PER_NODE}_$(date +%Y%m%d_%H%M%S)}"
+RUN_DIR="${RUN_ROOT_BASE}/${RUN_TAG}"
+mkdir -p "${RUN_DIR}/logs" "${RUN_DIR}/artifacts/checkpoints" "${RUN_DIR}/train_outputs" "${RUN_DIR}/eval"
+
+LOG_FILE="${RUN_DIR}/logs/train_eval.log"
+CFG_FILE="${RUN_DIR}/logs/config.txt"
+
+STAGE4_WEIGHT="$(${PY} - <<PY
+b=float('${STAGE2_BETA}')
+if not (0.0 <= b <= 1.0):
+    raise SystemExit(1)
+print(f"{1.0-b:.6f}")
+PY
+)"
+STAGE_WEIGHTS="0,0,${STAGE2_BETA},${STAGE4_WEIGHT}"
+
+{
+  echo "RUN_DIR=${RUN_DIR}"
+  echo "NPROC_PER_NODE=${NPROC_PER_NODE}"
+  echo "STEPS=${STEPS}"
+  echo "SAVE_EVERY=${SAVE_EVERY}"
+  echo "BATCH_SIZE=${BATCH_SIZE}"
+  echo "K=${K}"
+  echo "LR=${LR}"
+  echo "WEIGHT_DECAY=${WEIGHT_DECAY}"
+  echo "MAX_GRAD_NORM=${MAX_GRAD_NORM}"
+  echo "SIGMA_PD=${SIGMA_PD}"
+  echo "NOISE_STD=${NOISE_STD}"
+  echo "STEP_SIZE=${STEP_SIZE}"
+  echo "LANGEVIN_SIGN=${LANGEVIN_SIGN}"
+  echo "STAGES_PER_NODE=${STAGES_PER_NODE}"
+  echo "STAGE_WEIGHT_MODE=${STAGE_WEIGHT_MODE}"
+  echo "STAGE_WEIGHTS=${STAGE_WEIGHTS}"
+  echo "STAGE2_BETA=${STAGE2_BETA}"
+  echo "WARMUP_GATE=${WARMUP_GATE}"
+  echo "LOG_EVERY=${LOG_EVERY}"
+  echo "DEBUG_LEVEL=${DEBUG_LEVEL}"
+  echo "SEED=${SEED}"
+  echo "SYNC_FRESH_INIT=${SYNC_FRESH_INIT}"
+  echo "DATA_DIR=${DATA_DIR}"
+  echo "EVAL_PLAN=${EVAL_PLAN}"
+  echo "EVAL_BATCH=${EVAL_BATCH}"
+  echo "K_EVAL=${K_EVAL}"
+  echo "EVAL_SEED=${EVAL_SEED}"
+  echo "EVAL_DEVICE=${EVAL_DEVICE}"
+} > "${CFG_FILE}"
+
+TRAIN_CMD=(
+  /home/kevienzzq/.conda/envs/llm-env/bin/torchrun --standalone --nproc_per_node="${NPROC_PER_NODE}"
+  "${PROJECT_DIR}/scripts/current/ebm_train_sync_mode_a.py"
+  --mode pipeline
+  --steps "${STEPS}"
+  --save_every "${SAVE_EVERY}"
+  --save_dir "${RUN_DIR}/artifacts/checkpoints"
+  --vis_every 200
+  --K "${K}"
+  --batch_size "${BATCH_SIZE}"
+  --lr "${LR}"
+  --weight_decay "${WEIGHT_DECAY}"
+  --max_grad_norm "${MAX_GRAD_NORM}"
+  --noise_std "${NOISE_STD}"
+  --step_size "${STEP_SIZE}"
+  --langevin_sign "${LANGEVIN_SIGN}"
+  --stages_per_node "${STAGES_PER_NODE}"
+  --fresh_init
+  --no_clamp_x
+  --pos_noise_std "${SIGMA_PD}"
+  --no_clamp_pos
+  --stage_weight_mode "${STAGE_WEIGHT_MODE}"
+  --stage_weights "${STAGE_WEIGHTS}"
+  --data_dir "${DATA_DIR}"
+  --output_dir "${RUN_DIR}/train_outputs"
+  --seed "${SEED}"
+  --debug_level "${DEBUG_LEVEL}"
+  --log_every "${LOG_EVERY}"
+)
+
+if [[ "${WARMUP_GATE}" == "1" ]]; then
+  TRAIN_CMD+=(--warmup_gate)
+fi
+
+if [[ "${SYNC_FRESH_INIT}" == "1" ]]; then
+  TRAIN_CMD+=(--sync_fresh_init)
+fi
+
+{
+  echo "[TRAIN CMD]"
+  printf '%q ' "${TRAIN_CMD[@]}"
+  printf '\n'
+} >> "${CFG_FILE}"
+
+echo "[RUN] convergence training" | tee -a "${LOG_FILE}"
+"${TRAIN_CMD[@]}" 2>&1 | tee -a "${LOG_FILE}"
+
+SUMMARY_CSV="${RUN_DIR}/eval/convergence_summary.csv"
+SUMMARY_JSON="${RUN_DIR}/eval/convergence_summary.json"
+
+echo "run_name,steps,ckpt_step,fid_inception,fid_feature,unique_ratio,diversity_trace,max_f_neg_last_1k_mean,max_abs_chain_last_1k_mean,fneg2_over_fneg3_last_1k_mean,metrics_json,gen_dir" > "${SUMMARY_CSV}"
+
+${PY} - <<PY
+import re, json
+from pathlib import Path
+
+run_dir = Path('${RUN_DIR}')
+steps = int('${STEPS}')
+log_path = run_dir / 'logs' / 'train_eval.log'
+
+re_global = re.compile(r"\\[GLOBAL step(\\d+)\\] per_rank_fneg:\\s+r0:s0=([+-]?\\d+\\.\\d+e[+-]\\d+)\\s+r1:s1=([+-]?\\d+\\.\\d+e[+-]\\d+)\\s+r2:s2=([+-]?\\d+\\.\\d+e[+-]\\d+)\\s+r3:s3=([+-]?\\d+\\.\\d+e[+-]\\d+)")
+re_step = re.compile(r"\\[STEP rank0 stage0\\].*step=(\\d+).*max_f_neg=([+-]?\\d+\\.\\d+e[+-]\\d+)\\s+max_abs_chain=([+-]?\\d+\\.\\d+e[+-]\\d+)")
+
+s2=[]; s3=[]; maxf=[]; maxabs=[]
+start=max(0, steps-1000)
+for ln in log_path.read_text(errors='ignore').splitlines():
+    g=re_global.search(ln)
+    if g:
+        st=int(g.group(1))
+        if st>=start:
+            s2.append(float(g.group(4)))
+            s3.append(float(g.group(5)))
+    m=re_step.search(ln)
+    if m:
+        st=int(m.group(1))
+        if st>=start:
+            maxf.append(float(m.group(2)))
+            maxabs.append(float(m.group(3)))
+
+out={
+  'max_f_neg_last_1k_mean': (sum(maxf)/len(maxf) if maxf else float('nan')),
+  'max_abs_chain_last_1k_mean': (sum(maxabs)/len(maxabs) if maxabs else float('nan')),
+  'fneg2_over_fneg3_last_1k_mean': ((sum(s2)/len(s2))/(sum(s3)/len(s3)) if s2 and s3 and abs(sum(s3)/len(s3))>1e-12 else float('nan')),
+}
+(run_dir/'eval'/'last1k_stats.json').write_text(json.dumps(out, indent=2))
+print(json.dumps(out))
+PY
+
+LAST1K_JSON="${RUN_DIR}/eval/last1k_stats.json"
+
+IFS=',' read -ra PAIRS <<< "${EVAL_PLAN}"
+for PAIR in "${PAIRS[@]}"; do
+  CKPT_STEP="${PAIR%%:*}"
+  NUM_IMAGES="${PAIR##*:}"
+  CKPT="${RUN_DIR}/artifacts/checkpoints/ckpt_step${CKPT_STEP}.pt"
+  if [[ ! -f "${CKPT}" ]]; then
+    echo "[WARN] checkpoint missing: ${CKPT}" | tee -a "${LOG_FILE}"
+    continue
+  fi
+
+  TS="$(date +%Y%m%d_%H%M%S)"
+  GEN_OUT="${RUN_DIR}/eval/pipeline_gen_step${CKPT_STEP}_${TS}"
+  METRICS_JSON="${RUN_DIR}/eval/metrics_compare_step${CKPT_STEP}_${TS}.json"
+
+  echo "[RUN] eval_generate step=${CKPT_STEP} num_images=${NUM_IMAGES}" | tee -a "${LOG_FILE}"
+  "${PY}" -u "${PROJECT_DIR}/scripts/current/eval_generate.py" \
+    --ckpt "${CKPT}" \
+    --out_dir "${GEN_OUT}" \
+    --num_images "${NUM_IMAGES}" \
+    --batch "${EVAL_BATCH}" \
+    --K_eval "${K_EVAL}" \
+    --langevin_sign "${LANGEVIN_SIGN}" \
+    --step_size "${STEP_SIZE}" \
+    --noise_std "${NOISE_STD}" \
+    --seed "${EVAL_SEED}" \
+    --device "${EVAL_DEVICE}" \
+    --no_clamp_x | tee -a "${LOG_FILE}"
+
+  echo "[RUN] eval_metrics step=${CKPT_STEP}" | tee -a "${LOG_FILE}"
+  "${PY}" -u "${PROJECT_DIR}/scripts/current/eval_metrics.py" \
+    --baseline_samples "${GEN_OUT}/samples.pt" \
+    --pipeline_samples "${GEN_OUT}/samples.pt" \
+    --data_dir "${DATA_DIR}" \
+    --num_real "${NUM_IMAGES}" \
+    --batch "${EVAL_BATCH}" \
+    --out_json "${METRICS_JSON}" \
+    --device "${EVAL_DEVICE}" | tee -a "${LOG_FILE}"
+
+  ${PY} - <<PY
+import csv, json
+run_name='${RUN_TAG}'
+steps='${STEPS}'
+ckpt_step='${CKPT_STEP}'
+metrics_json='${METRICS_JSON}'
+gen_dir='${GEN_OUT}'
+summary_csv='${SUMMARY_CSV}'
+last1k_json='${LAST1K_JSON}'
+with open(metrics_json) as f:m=json.load(f)
+with open(last1k_json) as f:s=json.load(f)
+row=[
+  run_name,
+  int(steps),
+  int(ckpt_step),
+  m.get('fid_inception_baseline_vs_real'),
+  m.get('fid_feature_baseline_vs_real'),
+  (m.get('baseline_distinct_images') or {}).get('unique_ratio'),
+  m.get('diversity_trace_baseline'),
+  s.get('max_f_neg_last_1k_mean'),
+  s.get('max_abs_chain_last_1k_mean'),
+  s.get('fneg2_over_fneg3_last_1k_mean'),
+  metrics_json,
+  gen_dir,
+]
+with open(summary_csv,'a',newline='') as f:
+  csv.writer(f).writerow(row)
+print('[SUMMARY ROW]', row)
+PY
+
+done
+
+${PY} - <<PY
+import csv, json
+csv_path='${SUMMARY_CSV}'
+rows=[]
+with open(csv_path) as f:
+  r=csv.DictReader(f)
+  for row in r:
+    rows.append(row)
+out={'run_dir':'${RUN_DIR}','rows':rows}
+with open('${SUMMARY_JSON}','w') as f:
+  json.dump(out,f,indent=2)
+print('[SUMMARY] json=', '${SUMMARY_JSON}')
+print('[SUMMARY] csv=', csv_path)
+PY
+
+ln -sfn "${RUN_DIR}" "${RUN_ROOT_BASE}/latest"
+echo "[DONE] run_dir=${RUN_DIR}" | tee -a "${LOG_FILE}"

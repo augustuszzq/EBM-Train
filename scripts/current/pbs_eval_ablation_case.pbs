@@ -1,0 +1,21 @@
+#!/bin/bash
+#PBS -A lc-mpi
+#PBS -l select=1:system=polaris
+#PBS -l walltime=02:00:00
+#PBS -l filesystems=home:eagle
+#PBS -q preemptable
+#PBS -N ablation_eval
+#PBS -j oe
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [[ -n "${PROJECT_DIR:-}" ]]; then
+  PROJECT_DIR="$(cd "${PROJECT_DIR}" && pwd)"
+elif [[ -n "${PBS_O_WORKDIR:-}" && -f "${PBS_O_WORKDIR}/scripts/current/eval_generate.py" ]]; then
+  PROJECT_DIR="${PBS_O_WORKDIR}"
+else
+  PROJECT_DIR="$(cd "${SCRIPT_DIR}/../.." && pwd)"
+fi
+export PROJECT_DIR
+exec "${PROJECT_DIR}/scripts/current/run_eval_ablation_case.sh"

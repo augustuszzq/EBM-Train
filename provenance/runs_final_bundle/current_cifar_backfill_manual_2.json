@@ -1,0 +1,13 @@
+{
+  "active": [
+    "current_cifar_paper:cifar10:single_P2_deepest:seed2:h500000"
+  ],
+  "gpus": [
+    "2",
+    "3"
+  ],
+  "pending": [],
+  "rank_count": 1,
+  "rank_index": 0,
+  "registry": "/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_final_bundle/master_experiment_registry.csv"
+}

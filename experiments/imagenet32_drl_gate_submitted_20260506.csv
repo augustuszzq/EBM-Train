@@ -1,0 +1,3 @@
+exp_id,train_job_id,queue,train_run_dir,steps,lr,lr_warmup_steps,grad_clip_norm,soft_guard_stop,submitted_at_utc
+imagenet32_drl_ddp_k100_lr5e8_warm10k_clip1_clean20k_gate,7117386.polaris-pbs-01.hsn.cm.polaris.alcf.anl.gov,preemptable,/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_imagenet32_drl/pbs_gate/imagenet32_drl_ddp_k100_lr5e8_warm10k_clip1_clean20k_20260506,20000,5e-8,10000,1.0,1,2026-05-06
+imagenet32_drl_ddp_k100_lr25e9_warm10k_clip1_clean20k_gate,7117387.polaris-pbs-01.hsn.cm.polaris.alcf.anl.gov,preemptable,/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_imagenet32_drl/pbs_gate/imagenet32_drl_ddp_k100_lr25e9_warm10k_clip1_clean20k_20260506,20000,2.5e-8,10000,1.0,1,2026-05-06

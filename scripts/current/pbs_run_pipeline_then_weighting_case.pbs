@@ -1,0 +1,21 @@
+#!/bin/bash
+#PBS -A lc-mpi
+#PBS -l select=1:system=polaris
+#PBS -l walltime=04:00:00
+#PBS -l filesystems=home:eagle
+#PBS -q preemptable
+#PBS -N ptw_train
+#PBS -j oe
+
+set -euo pipefail
+
+if [[ -n "${PROJECT_DIR:-}" && -f "${PROJECT_DIR}/scripts/current/pbs_run_ablation_case.pbs" ]]; then
+  TARGET="${PROJECT_DIR}/scripts/current/pbs_run_ablation_case.pbs"
+elif [[ -n "${PBS_O_WORKDIR:-}" && -f "${PBS_O_WORKDIR}/scripts/current/pbs_run_ablation_case.pbs" ]]; then
+  TARGET="${PBS_O_WORKDIR}/scripts/current/pbs_run_ablation_case.pbs"
+else
+  echo "[ERROR] unable to locate pbs_run_ablation_case.pbs" >&2
+  exit 127
+fi
+
+exec /usr/bin/bash "${TARGET}"

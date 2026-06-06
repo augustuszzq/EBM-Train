@@ -1,0 +1,17 @@
+benchmark:
+  name: cifar10
+  data_mode: synthetic
+  uses_drl_backbone: false
+  uses_imagenet32: false
+microbench:
+  mode: pipeline_stage_nocomm
+  K: 400
+  pipe_stages: 8
+  slice_steps: 50
+  steps: 3000
+  warmup_steps: 100
+  batch_size: 256
+  local_batch: 32
+  step_size: 0.0025
+  noise_std: 0.01
+  purpose: overhead attribution for K400 sampling/DDP/pipeline critical path

@@ -1,0 +1,183 @@
+#!/bin/bash
+#PBS -A lc-mpi
+#PBS -l select=1:system=polaris
+#PBS -l walltime=01:00:00
+#PBS -l filesystems=home:eagle
+#PBS -q debug
+#PBS -N modea_align_fid
+#PBS -j oe
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [[ -n "${PROJECT_DIR:-}" ]]; then
+  PROJECT_DIR="$(cd "${PROJECT_DIR}" && pwd)"
+elif [[ -n "${PBS_O_WORKDIR:-}" && -f "${PBS_O_WORKDIR}/scripts/current/ebm_train_sync_mode_a.py" ]]; then
+  PROJECT_DIR="${PBS_O_WORKDIR}"
+else
+  PROJECT_DIR="$(cd "${SCRIPT_DIR}/../.." && pwd)"
+fi
+cd "${PROJECT_DIR}"
+
+module use /soft/modulefiles
+module load conda
+conda activate /home/kevienzzq/.conda/envs/llm-env
+
+export OPENBLAS_NUM_THREADS=1
+export OMP_NUM_THREADS=1
+export MKL_NUM_THREADS=1
+export PYTORCH_CUDA_ALLOC_CONF="${PYTORCH_CUDA_ALLOC_CONF:-expandable_segments:True}"
+export CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-0,1,2,3}"
+
+PY=/home/kevienzzq/.conda/envs/llm-env/bin/python
+
+NPROC_PER_NODE="${NPROC_PER_NODE:-4}"
+RUN_TAG="${RUN_TAG:-modea_fullk_align128_s$(date +%Y%m%d_%H%M%S)}"
+RUN_ROOT_BASE="${RUN_ROOT_BASE:-${PROJECT_DIR}/runs_dual/modea_fullk_align128}"
+RUN_ROOT="${RUN_ROOT_BASE}/${RUN_TAG}"
+mkdir -p "${RUN_ROOT}/logs" "${RUN_ROOT}/artifacts/checkpoints" "${RUN_ROOT}/train_outputs" "${RUN_ROOT}/eval"
+
+STEPS="${STEPS:-5000}"
+SAVE_EVERY="${SAVE_EVERY:-500}"
+K="${K:-100}"
+BATCH_SIZE="${BATCH_SIZE:-64}"
+LR="${LR:-1e-4}"
+WEIGHT_DECAY="${WEIGHT_DECAY:-0.0}"
+MAX_GRAD_NORM="${MAX_GRAD_NORM:-0.0}"
+NOISE_STD="${NOISE_STD:-0.01}"
+STEP_SIZE="${STEP_SIZE:-1.0}"
+LANGEVIN_SIGN="${LANGEVIN_SIGN:-1.0}"
+POS_NOISE_STD="${POS_NOISE_STD:-0.03}"
+SEED="${SEED:-1}"
+SYNC_FRESH_INIT="${SYNC_FRESH_INIT:-0}"
+DATA_DIR="${DATA_DIR:-/eagle/lc-mpi/Zhiqing/ebm/data/cifar10}"
+DEBUG_LEVEL="${DEBUG_LEVEL:-1}"
+LOG_EVERY="${LOG_EVERY:-10}"
+
+NUM_IMAGES="${NUM_IMAGES:-5000}"
+EVAL_BATCH="${EVAL_BATCH:-256}"
+K_EVAL="${K_EVAL:-100}"
+EVAL_SEED="${EVAL_SEED:-${SEED}}"
+EVAL_DEVICE="${EVAL_DEVICE:-cuda}"
+
+LOG_FILE="${RUN_ROOT}/logs/train_eval.log"
+CMD_FILE="${RUN_ROOT}/logs/command.txt"
+
+{
+  echo "RUN_TAG=${RUN_TAG}"
+  echo "RUN_ROOT=${RUN_ROOT}"
+  echo "PROJECT_DIR=${PROJECT_DIR}"
+  echo "CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES}"
+  echo "NPROC_PER_NODE=${NPROC_PER_NODE}"
+  echo "STEPS=${STEPS}"
+  echo "SAVE_EVERY=${SAVE_EVERY}"
+  echo "K=${K}"
+  echo "BATCH_SIZE=${BATCH_SIZE}"
+  echo "LR=${LR}"
+  echo "WEIGHT_DECAY=${WEIGHT_DECAY}"
+  echo "MAX_GRAD_NORM=${MAX_GRAD_NORM}"
+  echo "NOISE_STD=${NOISE_STD}"
+  echo "STEP_SIZE=${STEP_SIZE}"
+  echo "LANGEVIN_SIGN=${LANGEVIN_SIGN}"
+  echo "POS_NOISE_STD=${POS_NOISE_STD}"
+  echo "SEED=${SEED}"
+  echo "SYNC_FRESH_INIT=${SYNC_FRESH_INIT}"
+  echo "DATA_DIR=${DATA_DIR}"
+  echo "NUM_IMAGES=${NUM_IMAGES}"
+  echo "EVAL_BATCH=${EVAL_BATCH}"
+  echo "K_EVAL=${K_EVAL}"
+  echo "EVAL_SEED=${EVAL_SEED}"
+  echo "EVAL_DEVICE=${EVAL_DEVICE}"
+} > "${CMD_FILE}"
+
+TRAIN_CMD=(
+  /home/kevienzzq/.conda/envs/llm-env/bin/torchrun --standalone --nproc_per_node="${NPROC_PER_NODE}"
+  "${PROJECT_DIR}/scripts/current/ebm_train_sync_mode_a.py"
+  --mode ddp_fullk
+  --steps "${STEPS}"
+  --save_every "${SAVE_EVERY}"
+  --save_dir "${RUN_ROOT}/artifacts/checkpoints"
+  --vis_every 0
+  --K "${K}"
+  --batch_size "${BATCH_SIZE}"
+  --lr "${LR}"
+  --weight_decay "${WEIGHT_DECAY}"
+  --max_grad_norm "${MAX_GRAD_NORM}"
+  --noise_std "${NOISE_STD}"
+  --step_size "${STEP_SIZE}"
+  --langevin_sign "${LANGEVIN_SIGN}"
+  --fresh_init
+  --no_clamp_x
+  --pos_noise_std "${POS_NOISE_STD}"
+  --no_clamp_pos
+  --data_dir "${DATA_DIR}"
+  --output_dir "${RUN_ROOT}/train_outputs"
+  --seed "${SEED}"
+  --debug_level "${DEBUG_LEVEL}"
+  --log_every "${LOG_EVERY}"
+)
+
+if [[ "${SYNC_FRESH_INIT}" == "1" ]]; then
+  TRAIN_CMD+=(--sync_fresh_init)
+fi
+
+{
+  echo "[TRAIN CMD]"
+  printf '%q ' "${TRAIN_CMD[@]}"
+  printf '\n'
+} >> "${CMD_FILE}"
+
+echo "[RUN] root=${RUN_ROOT}" | tee -a "${LOG_FILE}"
+"${TRAIN_CMD[@]}" 2>&1 | tee -a "${LOG_FILE}"
+
+LATEST_CKPT="${RUN_ROOT}/artifacts/checkpoints/ckpt_step$((STEPS-1)).pt"
+if [[ ! -f "${LATEST_CKPT}" ]]; then
+  LATEST_CKPT="$(ls -1 ${RUN_ROOT}/artifacts/checkpoints/ckpt_step*.pt 2>/dev/null | sort -V | tail -n 1 || true)"
+fi
+if [[ -z "${LATEST_CKPT}" || ! -f "${LATEST_CKPT}" ]]; then
+  echo "[ERROR] no checkpoint found under ${RUN_ROOT}/artifacts/checkpoints" | tee -a "${LOG_FILE}"
+  exit 3
+fi
+echo "[CKPT] using ${LATEST_CKPT}" | tee -a "${LOG_FILE}"
+
+TS="$(date +%Y%m%d_%H%M%S)"
+GEN_OUT="${RUN_ROOT}/eval/baseline_gen_${TS}"
+METRICS_JSON="${RUN_ROOT}/eval/metrics_compare_${TS}.json"
+
+echo "[EVAL] generate baseline samples" | tee -a "${LOG_FILE}"
+"${PY}" -u "${PROJECT_DIR}/scripts/current/eval_generate.py" \
+  --ckpt "${LATEST_CKPT}" \
+  --out_dir "${GEN_OUT}" \
+  --num_images "${NUM_IMAGES}" \
+  --batch "${EVAL_BATCH}" \
+  --K_eval "${K_EVAL}" \
+  --langevin_sign "${LANGEVIN_SIGN}" \
+  --step_size "${STEP_SIZE}" \
+  --noise_std "${NOISE_STD}" \
+  --seed "${EVAL_SEED}" \
+  --device "${EVAL_DEVICE}" \
+  --no_clamp_x | tee -a "${LOG_FILE}"
+
+echo "[EVAL] compute metrics" | tee -a "${LOG_FILE}"
+"${PY}" -u "${PROJECT_DIR}/scripts/current/eval_metrics.py" \
+  --baseline_samples "${GEN_OUT}/samples.pt" \
+  --pipeline_samples "${GEN_OUT}/samples.pt" \
+  --data_dir "${DATA_DIR}" \
+  --num_real "${NUM_IMAGES}" \
+  --batch "${EVAL_BATCH}" \
+  --out_json "${METRICS_JSON}" \
+  --device "${EVAL_DEVICE}" | tee -a "${LOG_FILE}"
+
+"${PY}" - <<PY
+import json
+p = "${METRICS_JSON}"
+with open(p) as f:
+    m = json.load(f)
+print("[RESULT] fid_inception_baseline_vs_real =", m.get("fid_inception_baseline_vs_real"))
+print("[RESULT] fid_feature_baseline_vs_real =", m.get("fid_feature_baseline_vs_real"))
+print("[RESULT] fid_inception_error =", m.get("fid_inception_error"))
+print("[RESULT] metrics_json =", p)
+PY
+
+ln -sfn "${RUN_ROOT}" "${RUN_ROOT_BASE}/latest"
+echo "[DONE] run_root=${RUN_ROOT}" | tee -a "${LOG_FILE}"

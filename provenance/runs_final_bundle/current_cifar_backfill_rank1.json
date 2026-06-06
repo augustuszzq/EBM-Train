@@ -1,0 +1,13 @@
+{
+  "active": [],
+  "gpus": [
+    "0",
+    "1",
+    "2",
+    "3"
+  ],
+  "pending": [],
+  "rank_count": 2,
+  "rank_index": 1,
+  "registry": "/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_final_bundle/master_experiment_registry.csv"
+}

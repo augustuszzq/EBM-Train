@@ -1,0 +1,34 @@
+[QUEUE] targets=11 gpus=0,1,2,3
+[LAUNCH] gpu=0 pid=3783579 logical_run_id=current_cifar_paper:cifar10:pipe_P8_deepest:seed1:h300000
+[LAUNCH] gpu=1 pid=3783580 logical_run_id=current_cifar_paper:cifar10:pipe_P16_equal:seed1:h300000
+[LAUNCH] gpu=2 pid=3783581 logical_run_id=current_cifar_paper:cifar10:single_P1_terminal:seed2:h500000
+[LAUNCH] gpu=3 pid=3783582 logical_run_id=current_cifar_paper:cifar10:single_P1_terminal:seed3:h500000
+[DONE] gpu=0 rc=0 points=60/60 logical_run_id=current_cifar_paper:cifar10:pipe_P8_deepest:seed1:h300000
+[DONE] gpu=1 rc=0 points=60/60 logical_run_id=current_cifar_paper:cifar10:pipe_P16_equal:seed1:h300000
+[LAUNCH] gpu=0 pid=3796217 logical_run_id=current_cifar_paper:cifar10:pipe_P4_deepest:seed1:h500000
+[LAUNCH] gpu=1 pid=3796218 logical_run_id=current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h500000
+[DONE] gpu=2 rc=0 points=100/100 logical_run_id=current_cifar_paper:cifar10:single_P1_terminal:seed2:h500000
+[LAUNCH] gpu=2 pid=3812159 logical_run_id=current_cifar_paper:cifar10:pipe_P4_deepest:seed3:h500000
+[DONE] gpu=3 rc=0 points=100/100 logical_run_id=current_cifar_paper:cifar10:single_P1_terminal:seed3:h500000
+[LAUNCH] gpu=3 pid=3812243 logical_run_id=current_cifar_paper:cifar10:ddp_P1_terminal_K25:seed1:h300000
+[DONE] gpu=0 rc=0 points=100/100 logical_run_id=current_cifar_paper:cifar10:pipe_P4_deepest:seed1:h500000
+[DONE] gpu=1 rc=0 points=100/100 logical_run_id=current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h500000
+[LAUNCH] gpu=0 pid=3846420 logical_run_id=current_cifar_paper:cifar10:ddp_P1_terminal_K50:seed1:h300000
+[LAUNCH] gpu=1 pid=3846421 logical_run_id=current_cifar_paper:cifar10:ddp_P1_terminal_K100:seed1:h300000
+[DONE] gpu=3 rc=0 points=60/60 logical_run_id=current_cifar_paper:cifar10:ddp_P1_terminal_K25:seed1:h300000
+[LAUNCH] gpu=3 pid=3851045 logical_run_id=current_cifar_paper:cifar10:pipe_P4_deepest_K100:seed1:h300000
+[DONE] gpu=2 rc=0 points=100/100 logical_run_id=current_cifar_paper:cifar10:pipe_P4_deepest:seed3:h500000
+[DONE] gpu=0 rc=0 points=60/60 logical_run_id=current_cifar_paper:cifar10:ddp_P1_terminal_K50:seed1:h300000
+[DONE] gpu=1 rc=0 points=60/60 logical_run_id=current_cifar_paper:cifar10:ddp_P1_terminal_K100:seed1:h300000
+[DONE] gpu=3 rc=0 points=60/60 logical_run_id=current_cifar_paper:cifar10:pipe_P4_deepest_K100:seed1:h300000
+[DONE] blocked current-CIFAR backfill complete
+Wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_final_bundle/master_experiment_registry.csv
+Wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_final_bundle/scheduler_attempts.csv
+Wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_final_bundle/paper_manifest_current.md
+Wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_final_bundle/manifest_diff_vs_claimed_plan.md
+{
+  "blocked_or_incomplete_runs": 0,
+  "complete_trajectory_runs": 57,
+  "completed_logical_runs": 57,
+  "total_current_cifar_logical_runs": 57
+}

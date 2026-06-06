@@ -1,0 +1,36 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local run outputs and large artifacts should not be committed.
+/runs/
+/runs_*/
+/logs/
+/data/
+/tmp_*/
+*.pt
+*.pth
+*.ckpt
+*.pkl
+*.npy
+*.npz
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.mp4
+
+# PBS stdout/stderr and local scratch files.
+*.o[0-9]*
+*.e[0-9]*
+*.pbs.out
+*.pbs.err
+core.*
+
+# Environment files.
+.env
+.venv/
+venv/
+conda-meta/

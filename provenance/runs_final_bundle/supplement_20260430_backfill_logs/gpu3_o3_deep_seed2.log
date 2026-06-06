@@ -1,0 +1,545 @@
+[LAUNCH] 2026-04-30T18:58:12Z gpu=3 label=current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 run_dir=/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step005000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step005000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step005000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.0027835287619382143, "frac_zero": 0.7570895552635193, "max": 1.857484221458435, "mean": -0.2779359519481659, "min": -1.7749446630477905, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.4228433072566986, "unique_count": 1011438, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.0027835287619382143, "frac_zero": 0.016657160595059395, "max": 1.0, "mean": 0.36163535714149475, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.20954056084156036, "unique_count": 978167, "unique_mode": "sampled"}
+Downloading: "https://download.pytorch.org/models/inception_v3_google-0cc3c7bd.pth" to /home/kevienzzq/.cache/torch/hub/checkpoints/inception_v3_google-0cc3c7bd.pth
+  0%|          | 0.00/104M [00:00<?, ?B/s]  6%|▌         | 6.25M/104M [00:00<00:01, 63.6MB/s] 12%|█▏        | 12.4M/104M [00:00<00:01, 57.3MB/s] 17%|█▋        | 17.9M/104M [00:00<00:01, 55.2MB/s] 22%|██▏       | 23.2M/104M [00:00<00:01, 49.1MB/s] 27%|██▋       | 28.1M/104M [00:00<00:01, 43.3MB/s] 31%|███       | 32.4M/104M [00:00<00:01, 40.9MB/s] 35%|███▌      | 36.4M/104M [00:00<00:01, 39.3MB/s] 39%|███▊      | 40.2M/104M [00:00<00:01, 38.0MB/s] 42%|████▏     | 44.0M/104M [00:01<00:01, 37.0MB/s] 46%|████▌     | 47.6M/104M [00:01<00:01, 36.3MB/s] 49%|████▉     | 51.1M/104M [00:01<00:01, 36.1MB/s] 53%|█████▎    | 54.6M/104M [00:01<00:01, 35.9MB/s] 56%|█████▌    | 58.1M/104M [00:01<00:01, 35.8MB/s] 59%|█████▉    | 61.6M/104M [00:01<00:01, 35.6MB/s] 63%|██████▎   | 65.1M/104M [00:01<00:01, 34.9MB/s] 66%|██████▌   | 68.5M/104M [00:01<00:01, 34.8MB/s] 69%|██████▉   | 71.9M/104M [00:01<00:00, 34.7MB/s] 72%|███████▏  | 75.2M/104M [00:02<00:00, 34.3MB/s] 76%|███████▌  | 78.8M/104M [00:02<00:00, 34.5MB/s] 79%|███████▉  | 82.2M/104M [00:02<00:00, 34.7MB/s] 82%|████████▏ | 85.6M/104M [00:02<00:00, 34.4MB/s] 86%|████████▌ | 89.0M/104M [00:02<00:00, 34.3MB/s] 89%|████████▉ | 92.4M/104M [00:02<00:00, 34.3MB/s] 92%|█████████▏| 95.8M/104M [00:02<00:00, 34.4MB/s] 95%|█████████▌| 99.1M/104M [00:02<00:00, 33.1MB/s] 99%|█████████▊| 102M/104M [00:02<00:00, 31.7MB/s] 100%|██████████| 104M/104M [00:02<00:00, 37.0MB/s]
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step005000/metrics_compare.json
+[METRICS] feature-FID baseline=4.658469 pipeline=4.658469 delta=0.000000
+[METRICS] inception-FID baseline=278.873026 pipeline=278.873026 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=5000 fid=278.873026
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step010000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step010000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step010000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.0017054036725312471, "frac_zero": 0.6906772255897522, "max": 1.9238053560256958, "mean": -0.19708873331546783, "min": -1.7022002935409546, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.40724432468414307, "unique_count": 1014054, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.0017054036725312471, "frac_zero": 0.00954485684633255, "max": 1.0, "mean": 0.40175363421440125, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.20259079337120056, "unique_count": 984648, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step010000/metrics_compare.json
+[METRICS] feature-FID baseline=3.006045 pipeline=3.006045 delta=0.000000
+[METRICS] inception-FID baseline=168.415368 pipeline=168.415368 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=10000 fid=168.415368
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step015000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step015000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step015000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.006419466342777014, "frac_zero": 0.646737277507782, "max": 1.8885612487792969, "mean": -0.1627710908651352, "min": -1.5605700016021729, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.491682767868042, "unique_count": 1012809, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.006419596262276173, "frac_zero": 0.008693164214491844, "max": 1.0, "mean": 0.4186202883720398, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.24469950795173645, "unique_count": 984026, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step015000/metrics_compare.json
+[METRICS] feature-FID baseline=1.496911 pipeline=1.496911 delta=0.000000
+[METRICS] inception-FID baseline=125.700079 pipeline=125.700079 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=15000 fid=125.700079
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step020000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step020000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step020000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.0026572917122393847, "frac_zero": 0.4779987633228302, "max": 1.7193533182144165, "mean": 0.015341800637543201, "min": -1.6742331981658936, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.39940977096557617, "unique_count": 1016512, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.0026572917122393847, "frac_zero": 0.0024167969822883606, "max": 1.0, "mean": 0.5076553225517273, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.19924485683441162, "unique_count": 984731, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step020000/metrics_compare.json
+[METRICS] feature-FID baseline=1.475917 pipeline=1.475917 delta=0.000000
+[METRICS] inception-FID baseline=105.707862 pipeline=105.707862 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=20000 fid=105.707862
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step025000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step025000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step025000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.023714257404208183, "frac_zero": 0.41445598006248474, "max": 1.939315915107727, "mean": 0.11675655841827393, "min": -2.1052298545837402, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.507800281047821, "unique_count": 1015037, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.02371438778936863, "frac_zero": 0.005025260616093874, "max": 1.0, "mean": 0.5575305819511414, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2514702081680298, "unique_count": 965238, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step025000/metrics_compare.json
+[METRICS] feature-FID baseline=2.292585 pipeline=2.292585 delta=0.000000
+[METRICS] inception-FID baseline=126.524072 pipeline=126.524072 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=25000 fid=126.524072
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step030000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step030000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step030000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.0029508464504033327, "frac_zero": 0.6339403390884399, "max": 1.7435632944107056, "mean": -0.14792011678218842, "min": -1.7800849676132202, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.45860999822616577, "unique_count": 1014419, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.0029508464504033327, "frac_zero": 0.009014713577926159, "max": 1.0, "mean": 0.42624545097351074, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2284172922372818, "unique_count": 986259, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step030000/metrics_compare.json
+[METRICS] feature-FID baseline=1.243639 pipeline=1.243639 delta=0.000000
+[METRICS] inception-FID baseline=106.913972 pipeline=106.913972 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=30000 fid=106.913972
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step035000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step035000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step035000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.020589713007211685, "frac_zero": 0.5435072183609009, "max": 2.1531760692596436, "mean": -0.03180063143372536, "min": -1.8495805263519287, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.5175370573997498, "unique_count": 1015432, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.020590169355273247, "frac_zero": 0.010232031345367432, "max": 1.0, "mean": 0.48349452018737793, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.25566384196281433, "unique_count": 967888, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step035000/metrics_compare.json
+[METRICS] feature-FID baseline=1.142906 pipeline=1.142906 delta=0.000000
+[METRICS] inception-FID baseline=104.358137 pipeline=104.358137 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=35000 fid=104.358137
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step040000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step040000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step040000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.004874349106103182, "frac_zero": 0.5334136486053467, "max": 1.774409294128418, "mean": -0.03962807357311249, "min": -1.7518775463104248, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.46972739696502686, "unique_count": 1015557, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.004874349106103182, "frac_zero": 0.0054453774355351925, "max": 1.0, "mean": 0.4802059531211853, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2340496927499771, "unique_count": 986026, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step040000/metrics_compare.json
+[METRICS] feature-FID baseline=1.041277 pipeline=1.041277 delta=0.000000
+[METRICS] inception-FID baseline=93.688955 pipeline=93.688955 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=40000 fid=93.688955
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step045000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step045000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step045000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.06831315159797668, "frac_zero": 0.2828723192214966, "max": 2.2161717414855957, "mean": 0.3190699517726898, "min": -1.6486759185791016, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.5045298933982849, "unique_count": 1011916, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.06831374019384384, "frac_zero": 0.0015386068262159824, "max": 1.0, "mean": 0.6561829447746277, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2468196302652359, "unique_count": 918899, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step045000/metrics_compare.json
+[METRICS] feature-FID baseline=7.358853 pipeline=7.358853 delta=0.000000
+[METRICS] inception-FID baseline=76.388812 pipeline=76.388812 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=45000 fid=76.388812
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step050000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step050000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step050000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.01656464859843254, "frac_zero": 0.5094424486160278, "max": 2.002882480621338, "mean": 0.011693131178617477, "min": -1.6704645156860352, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.4937881827354431, "unique_count": 1015614, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.01656464859843254, "frac_zero": 0.0038057942874729633, "max": 1.0, "mean": 0.5052791833877563, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.24512839317321777, "unique_count": 976538, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step050000/metrics_compare.json
+[METRICS] feature-FID baseline=1.858649 pipeline=1.858649 delta=0.000000
+[METRICS] inception-FID baseline=99.955412 pipeline=99.955412 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=50000 fid=99.955412
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step055000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step055000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step055000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.04200318828225136, "frac_zero": 0.3385273516178131, "max": 1.8678489923477173, "mean": 0.22335779666900635, "min": -1.6500581502914429, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.5024700164794922, "unique_count": 1013967, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.042003318667411804, "frac_zero": 0.0018570312531664968, "max": 1.0, "mean": 0.6098051071166992, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.24774318933486938, "unique_count": 947485, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step055000/metrics_compare.json
+[METRICS] feature-FID baseline=4.201789 pipeline=4.201789 delta=0.000000
+[METRICS] inception-FID baseline=90.384742 pipeline=90.384742 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=55000 fid=90.384742
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step060000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step060000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step060000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.005436979234218597, "frac_zero": 0.6452462077140808, "max": 1.8956574201583862, "mean": -0.16976101696491241, "min": -1.6420011520385742, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.47014060616493225, "unique_count": 1014712, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.005436979234218597, "frac_zero": 0.013888606801629066, "max": 1.0, "mean": 0.4153893291950226, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.233597069978714, "unique_count": 979624, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step060000/metrics_compare.json
+[METRICS] feature-FID baseline=1.267157 pipeline=1.267157 delta=0.000000
+[METRICS] inception-FID baseline=85.708683 pipeline=85.708683 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=60000 fid=85.708683
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step065000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step065000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step065000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.027611589059233665, "frac_zero": 0.3873726427555084, "max": 1.9153059720993042, "mean": 0.15667203068733215, "min": -1.6183159351348877, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.49096307158470154, "unique_count": 1014938, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.02761165425181389, "frac_zero": 0.001953190192580223, "max": 1.0, "mean": 0.5773863196372986, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.24342705309391022, "unique_count": 963510, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step065000/metrics_compare.json
+[METRICS] feature-FID baseline=3.071236 pipeline=3.071236 delta=0.000000
+[METRICS] inception-FID baseline=97.616294 pipeline=97.616294 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=65000 fid=97.616294
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step070000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step070000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step070000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.006753711029887199, "frac_zero": 0.6466155648231506, "max": 1.965255618095398, "mean": -0.15942992269992828, "min": -1.8272373676300049, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.481661856174469, "unique_count": 1014084, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.0067537762224674225, "frac_zero": 0.01073457021266222, "max": 1.0, "mean": 0.4203897714614868, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.23946167528629303, "unique_count": 982057, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step070000/metrics_compare.json
+[METRICS] feature-FID baseline=1.253887 pipeline=1.253887 delta=0.000000
+[METRICS] inception-FID baseline=105.763183 pipeline=105.763183 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=70000 fid=105.763183
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step075000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step075000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step075000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.02778131514787674, "frac_zero": 0.4096475839614868, "max": 1.7166482210159302, "mean": 0.14826706051826477, "min": -1.4335155487060547, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.48271191120147705, "unique_count": 1015416, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.02778216078877449, "frac_zero": 0.0007828124798834324, "max": 1.0, "mean": 0.5732049942016602, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.23950515687465668, "unique_count": 965153, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step075000/metrics_compare.json
+[METRICS] feature-FID baseline=2.504898 pipeline=2.504898 delta=0.000000
+[METRICS] inception-FID baseline=96.592625 pipeline=96.592625 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=75000 fid=96.592625
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step080000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step080000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step080000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.0020150390919297934, "frac_zero": 0.7638260126113892, "max": 1.7541099786758423, "mean": -0.3034663498401642, "min": -1.660581111907959, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.43237417936325073, "unique_count": 1010315, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.0020150390919297934, "frac_zero": 0.014793749898672104, "max": 1.0, "mean": 0.3486596941947937, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2150813490152359, "unique_count": 981890, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step080000/metrics_compare.json
+[METRICS] feature-FID baseline=3.913697 pipeline=3.913697 delta=0.000000
+[METRICS] inception-FID baseline=84.461473 pipeline=84.461473 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=80000 fid=84.461473
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step085000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step085000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step085000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.030974218621850014, "frac_zero": 0.3628345727920532, "max": 1.791048526763916, "mean": 0.19539664685726166, "min": -1.484264612197876, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.4600062072277069, "unique_count": 1015207, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.030974414199590683, "frac_zero": 0.00040794271626509726, "max": 1.0, "mean": 0.5966153740882874, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2279011607170105, "unique_count": 959672, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step085000/metrics_compare.json
+[METRICS] feature-FID baseline=3.590344 pipeline=3.590344 delta=0.000000
+[METRICS] inception-FID baseline=93.110460 pipeline=93.110460 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=85000 fid=93.110460
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step090000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step090000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step090000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.051481183618307114, "frac_zero": 0.36721497774124146, "max": 2.1396546363830566, "mean": 0.21506650745868683, "min": -1.640533685684204, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.5040776133537292, "unique_count": 1014604, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.051481835544109344, "frac_zero": 0.001382487011142075, "max": 1.0, "mean": 0.6053199768066406, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2479945570230484, "unique_count": 940173, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step090000/metrics_compare.json
+[METRICS] feature-FID baseline=4.268046 pipeline=4.268046 delta=0.000000
+[METRICS] inception-FID baseline=80.603643 pipeline=80.603643 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=90000 fid=80.603643
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step095000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step095000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step095000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.0031154947355389595, "frac_zero": 0.6408787965774536, "max": 1.7480672597885132, "mean": -0.1557728797197342, "min": -1.6442300081253052, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.45633241534233093, "unique_count": 1014562, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.0031155599281191826, "frac_zero": 0.010535351932048798, "max": 1.0, "mean": 0.42236751317977905, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2270580232143402, "unique_count": 984541, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step095000/metrics_compare.json
+[METRICS] feature-FID baseline=1.140615 pipeline=1.140615 delta=0.000000
+[METRICS] inception-FID baseline=90.757078 pipeline=90.757078 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=95000 fid=90.757078
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step100000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step100000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step100000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.06912076473236084, "frac_zero": 0.2810335159301758, "max": 1.8351657390594482, "mean": 0.32319626212120056, "min": -1.7077933549880981, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.5363075137138367, "unique_count": 1010369, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.06912122666835785, "frac_zero": 0.0030106771737337112, "max": 1.0, "mean": 0.65889573097229, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2639223337173462, "unique_count": 916127, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step100000/metrics_compare.json
+[METRICS] feature-FID baseline=7.409471 pipeline=7.409471 delta=0.000000
+[METRICS] inception-FID baseline=91.972137 pipeline=91.972137 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=100000 fid=91.972137
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step105000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step105000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step105000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.003107161493971944, "frac_zero": 0.6743469834327698, "max": 1.5852903127670288, "mean": -0.19130539894104004, "min": -1.5552184581756592, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.4717528820037842, "unique_count": 1013179, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.003107161493971944, "frac_zero": 0.008748828433454037, "max": 1.0, "mean": 0.40451672673225403, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.23520343005657196, "unique_count": 987514, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step105000/metrics_compare.json
+[METRICS] feature-FID baseline=1.606757 pipeline=1.606757 delta=0.000000
+[METRICS] inception-FID baseline=77.474575 pipeline=77.474575 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=105000 fid=77.474575
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step110000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step110000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step110000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.00349739589728415, "frac_zero": 0.6430832743644714, "max": 1.9308900833129883, "mean": -0.1352510005235672, "min": -1.5900206565856934, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.4214087128639221, "unique_count": 1015036, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.0034974608570337296, "frac_zero": 0.003419466083869338, "max": 1.0, "mean": 0.4323512315750122, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2101198434829712, "unique_count": 988979, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step110000/metrics_compare.json
+[METRICS] feature-FID baseline=1.089335 pipeline=1.089335 delta=0.000000
+[METRICS] inception-FID baseline=85.231203 pipeline=85.231203 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=110000 fid=85.231203
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step115000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step115000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step115000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.007343684788793325, "frac_zero": 0.669305145740509, "max": 1.7563961744308472, "mean": -0.19550780951976776, "min": -1.8506531715393066, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.49530351161956787, "unique_count": 1013210, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.0073439450934529305, "frac_zero": 0.016950130462646484, "max": 1.0, "mean": 0.4025794267654419, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2458295226097107, "unique_count": 975939, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step115000/metrics_compare.json
+[METRICS] feature-FID baseline=1.537356 pipeline=1.537356 delta=0.000000
+[METRICS] inception-FID baseline=87.095100 pipeline=87.095100 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=115000 fid=87.095100
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step120000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step120000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step120000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.035271745175123215, "frac_zero": 0.45652422308921814, "max": 1.8789771795272827, "mean": 0.08815377950668335, "min": -1.6657277345657349, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.5507348775863647, "unique_count": 1014839, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.03527200594544411, "frac_zero": 0.0054011717438697815, "max": 1.0, "mean": 0.5428619980812073, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2725144326686859, "unique_count": 957136, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step120000/metrics_compare.json
+[METRICS] feature-FID baseline=1.518384 pipeline=1.518384 delta=0.000000
+[METRICS] inception-FID baseline=77.798019 pipeline=77.798019 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=120000 fid=77.798019
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step125000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step125000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step125000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.002734049456194043, "frac_zero": 0.7530396580696106, "max": 1.581865668296814, "mean": -0.29163238406181335, "min": -1.7069618701934814, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.44312846660614014, "unique_count": 1010982, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.002734049456194043, "frac_zero": 0.02033378928899765, "max": 1.0, "mean": 0.35482171177864075, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2199944704771042, "unique_count": 975862, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step125000/metrics_compare.json
+[METRICS] feature-FID baseline=3.601563 pipeline=3.601563 delta=0.000000
+[METRICS] inception-FID baseline=95.222782 pipeline=95.222782 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=125000 fid=95.222782
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step130000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step130000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step130000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.002401497447863221, "frac_zero": 0.7179570198059082, "max": 1.8640042543411255, "mean": -0.2440575510263443, "min": -1.6190234422683716, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.43505170941352844, "unique_count": 1012576, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.002401497447863221, "frac_zero": 0.012038476765155792, "max": 1.0, "mean": 0.3782634437084198, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2165243923664093, "unique_count": 983963, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step130000/metrics_compare.json
+[METRICS] feature-FID baseline=2.595102 pipeline=2.595102 delta=0.000000
+[METRICS] inception-FID baseline=93.342857 pipeline=93.342857 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=130000 fid=93.342857
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step135000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step135000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step135000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.016766732558608055, "frac_zero": 0.4273359477519989, "max": 1.8042380809783936, "mean": 0.10017041116952896, "min": -1.4360367059707642, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.4373217523097992, "unique_count": 1016120, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.016766926273703575, "frac_zero": 0.0007535156328231096, "max": 1.0, "mean": 0.5495098233222961, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2172807902097702, "unique_count": 973480, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step135000/metrics_compare.json
+[METRICS] feature-FID baseline=1.977721 pipeline=1.977721 delta=0.000000
+[METRICS] inception-FID baseline=67.506141 pipeline=67.506141 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=135000 fid=67.506141
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step140000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step140000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step140000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.061555467545986176, "frac_zero": 0.43755704164505005, "max": 1.901340126991272, "mean": 0.12834297120571136, "min": -1.6667778491973877, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.56297367811203, "unique_count": 1014616, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.061555858701467514, "frac_zero": 0.003567252540960908, "max": 1.0, "mean": 0.5613969564437866, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.27632832527160645, "unique_count": 933076, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step140000/metrics_compare.json
+[METRICS] feature-FID baseline=2.701084 pipeline=2.701084 delta=0.000000
+[METRICS] inception-FID baseline=78.822258 pipeline=78.822258 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=140000 fid=78.822258
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step145000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step145000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step145000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.0033667967654764652, "frac_zero": 0.6359342932701111, "max": 1.6743589639663696, "mean": -0.1602352112531662, "min": -1.7458513975143433, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.4666224718093872, "unique_count": 1014536, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.0033667967654764652, "frac_zero": 0.012519530951976776, "max": 1.0, "mean": 0.4202142059803009, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.23218178749084473, "unique_count": 982751, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step145000/metrics_compare.json
+[METRICS] feature-FID baseline=1.438967 pipeline=1.438967 delta=0.000000
+[METRICS] inception-FID baseline=69.187964 pipeline=69.187964 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=145000 fid=69.187964
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step150000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step150000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step150000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.020035937428474426, "frac_zero": 0.6181642413139343, "max": 1.9872417449951172, "mean": -0.15060138702392578, "min": -1.753092646598816, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.5689014196395874, "unique_count": 1013497, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.02003626339137554, "frac_zero": 0.029490038752555847, "max": 1.0, "mean": 0.42503026127815247, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.28102147579193115, "unique_count": 952234, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step150000/metrics_compare.json
+[METRICS] feature-FID baseline=1.158856 pipeline=1.158856 delta=0.000000
+[METRICS] inception-FID baseline=84.656851 pipeline=84.656851 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=150000 fid=84.656851
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step155000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step155000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step155000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.008369596675038338, "frac_zero": 0.5451937317848206, "max": 1.95079505443573, "mean": -0.04971269145607948, "min": -1.648480772972107, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.4993395507335663, "unique_count": 1015349, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.00836972612887621, "frac_zero": 0.007038932293653488, "max": 1.0, "mean": 0.4751095771789551, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2486688494682312, "unique_count": 982701, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step155000/metrics_compare.json
+[METRICS] feature-FID baseline=0.551466 pipeline=0.551466 delta=0.000000
+[METRICS] inception-FID baseline=85.795335 pipeline=85.795335 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=155000 fid=85.795335
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step160000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step160000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step160000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.005498242098838091, "frac_zero": 0.6588147282600403, "max": 1.7318732738494873, "mean": -0.18793287873268127, "min": -1.6927038431167603, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.4636458456516266, "unique_count": 1014343, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.005498242098838091, "frac_zero": 0.014870507642626762, "max": 1.0, "mean": 0.40636274218559265, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2302902489900589, "unique_count": 978644, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step160000/metrics_compare.json
+[METRICS] feature-FID baseline=1.937501 pipeline=1.937501 delta=0.000000
+[METRICS] inception-FID baseline=79.787404 pipeline=79.787404 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=160000 fid=79.787404
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step165000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step165000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step165000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.023233789950609207, "frac_zero": 0.46934738755226135, "max": 1.8019788265228271, "mean": 0.052943211048841476, "min": -1.6966313123703003, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.5345739126205444, "unique_count": 1015197, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.023233983665704727, "frac_zero": 0.007466471288353205, "max": 1.0, "mean": 0.5259026288986206, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2651400566101074, "unique_count": 966638, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step165000/metrics_compare.json
+[METRICS] feature-FID baseline=1.508945 pipeline=1.508945 delta=0.000000
+[METRICS] inception-FID baseline=90.080947 pipeline=90.080947 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=165000 fid=90.080947
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step170000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step170000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step170000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.01906985603272915, "frac_zero": 0.46508294343948364, "max": 1.6874785423278809, "mean": 0.06172957271337509, "min": -1.7312582731246948, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.4741882383823395, "unique_count": 1016087, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.019069921225309372, "frac_zero": 0.002433919347822666, "max": 1.0, "mean": 0.5302470922470093, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.23539958894252777, "unique_count": 973029, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step170000/metrics_compare.json
+[METRICS] feature-FID baseline=1.105945 pipeline=1.105945 delta=0.000000
+[METRICS] inception-FID baseline=68.149475 pipeline=68.149475 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=170000 fid=68.149475
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step175000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step175000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step175000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.02259596437215805, "frac_zero": 0.388922780752182, "max": 1.7461564540863037, "mean": 0.137558251619339, "min": -1.8145968914031982, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.49073195457458496, "unique_count": 1015172, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.022596288472414017, "frac_zero": 0.0030549478251487017, "max": 1.0, "mean": 0.5680820941925049, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2435745894908905, "unique_count": 966776, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step175000/metrics_compare.json
+[METRICS] feature-FID baseline=2.200745 pipeline=2.200745 delta=0.000000
+[METRICS] inception-FID baseline=65.101359 pipeline=65.101359 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=175000 fid=65.101359
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step180000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step180000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step180000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.003373177023604512, "frac_zero": 0.7211843132972717, "max": 1.6229387521743774, "mean": -0.24731884896755219, "min": -1.5822964906692505, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.4556722044944763, "unique_count": 1011516, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.0033732422161847353, "frac_zero": 0.009392643347382545, "max": 1.0, "mean": 0.3765016198158264, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2271163910627365, "unique_count": 986571, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step180000/metrics_compare.json
+[METRICS] feature-FID baseline=2.278620 pipeline=2.278620 delta=0.000000
+[METRICS] inception-FID baseline=84.230771 pipeline=84.230771 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=180000 fid=84.230771
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step185000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step185000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step185000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.012764778919517994, "frac_zero": 0.5858422517776489, "max": 2.1098597049713135, "mean": -0.10194911062717438, "min": -1.7852911949157715, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.5286955237388611, "unique_count": 1015002, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.01276490930467844, "frac_zero": 0.01865299418568611, "max": 1.0, "mean": 0.4493018686771393, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.26192960143089294, "unique_count": 968754, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step185000/metrics_compare.json
+[METRICS] feature-FID baseline=0.960515 pipeline=0.960515 delta=0.000000
+[METRICS] inception-FID baseline=68.963418 pipeline=68.963418 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=185000 fid=68.963418
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step190000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step190000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step190000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.021679427474737167, "frac_zero": 0.5301726460456848, "max": 1.7975225448608398, "mean": 0.008631711825728416, "min": -1.751579761505127, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.4831063449382782, "unique_count": 1015926, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.02167968824505806, "frac_zero": 0.002809244906529784, "max": 1.0, "mean": 0.5035532116889954, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.23945584893226624, "unique_count": 972170, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step190000/metrics_compare.json
+[METRICS] feature-FID baseline=0.869170 pipeline=0.869170 delta=0.000000
+[METRICS] inception-FID baseline=80.092922 pipeline=80.092922 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=190000 fid=80.092922
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step195000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step195000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step195000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.043852537870407104, "frac_zero": 0.3979445993900299, "max": 1.762414813041687, "mean": 0.1661260724067688, "min": -1.7632606029510498, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.532559871673584, "unique_count": 1014626, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.043852996081113815, "frac_zero": 0.004076236858963966, "max": 1.0, "mean": 0.5815792679786682, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2631247639656067, "unique_count": 947267, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step195000/metrics_compare.json
+[METRICS] feature-FID baseline=3.395271 pipeline=3.395271 delta=0.000000
+[METRICS] inception-FID baseline=68.154992 pipeline=68.154992 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=195000 fid=68.154992
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step200000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step200000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step200000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.0063595701940357685, "frac_zero": 0.4725804626941681, "max": 1.7763174772262573, "mean": 0.028498826548457146, "min": -1.5897217988967896, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.4307294487953186, "unique_count": 1016229, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.006359635386615992, "frac_zero": 0.0023969400208443403, "max": 1.0, "mean": 0.514096736907959, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.21458609402179718, "unique_count": 983289, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step200000/metrics_compare.json
+[METRICS] feature-FID baseline=1.437851 pipeline=1.437851 delta=0.000000
+[METRICS] inception-FID baseline=78.289286 pipeline=78.289286 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=200000 fid=78.289286
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step205000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step205000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step205000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.026969466358423233, "frac_zero": 0.49110695719718933, "max": 1.7503938674926758, "mean": 0.03196841478347778, "min": -1.7666287422180176, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.5364768505096436, "unique_count": 1015426, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.026969727128744125, "frac_zero": 0.008516145870089531, "max": 1.0, "mean": 0.5153021216392517, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2656749188899994, "unique_count": 962909, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step205000/metrics_compare.json
+[METRICS] feature-FID baseline=0.926984 pipeline=0.926984 delta=0.000000
+[METRICS] inception-FID baseline=68.309635 pipeline=68.309635 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=205000 fid=68.309635
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step210000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step210000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step210000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.013224544003605843, "frac_zero": 0.38580697774887085, "max": 1.7501184940338135, "mean": 0.1377321034669876, "min": -1.6878111362457275, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.5081455111503601, "unique_count": 1014184, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.013224609196186066, "frac_zero": 0.005011328030377626, "max": 1.0, "mean": 0.5686491131782532, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2529546022415161, "unique_count": 973929, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step210000/metrics_compare.json
+[METRICS] feature-FID baseline=2.211974 pipeline=2.211974 delta=0.000000
+[METRICS] inception-FID baseline=87.916354 pipeline=87.916354 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=210000 fid=87.916354
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step215000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step215000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step215000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.036676496267318726, "frac_zero": 0.5349480509757996, "max": 1.815200924873352, "mean": -0.015899719670414925, "min": -1.8857486248016357, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.565403938293457, "unique_count": 1015159, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.036676693707704544, "frac_zero": 0.01435462199151516, "max": 1.0, "mean": 0.49107837677001953, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.27856069803237915, "unique_count": 949631, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step215000/metrics_compare.json
+[METRICS] feature-FID baseline=0.896446 pipeline=0.896446 delta=0.000000
+[METRICS] inception-FID baseline=65.865006 pipeline=65.865006 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=215000 fid=65.865006
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step220000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step220000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step220000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.004376692697405815, "frac_zero": 0.6575786471366882, "max": 1.653546929359436, "mean": -0.20580992102622986, "min": -1.6928316354751587, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.5070663094520569, "unique_count": 1012849, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.004376757889986038, "frac_zero": 0.01808391883969307, "max": 1.0, "mean": 0.3975149989128113, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2522888779640198, "unique_count": 978251, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step220000/metrics_compare.json
+[METRICS] feature-FID baseline=1.640202 pipeline=1.640202 delta=0.000000
+[METRICS] inception-FID baseline=81.896463 pipeline=81.896463 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=220000 fid=81.896463
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step225000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step225000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step225000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.0009126953082159162, "frac_zero": 0.6360150575637817, "max": 1.8942004442214966, "mean": -0.17029157280921936, "min": -1.668445348739624, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.45012086629867554, "unique_count": 1014706, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.0009128255187533796, "frac_zero": 0.014123111963272095, "max": 1.0, "mean": 0.4153016209602356, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.22401922941207886, "unique_count": 982770, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step225000/metrics_compare.json
+[METRICS] feature-FID baseline=1.640617 pipeline=1.640617 delta=0.000000
+[METRICS] inception-FID baseline=88.818996 pipeline=88.818996 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=225000 fid=88.818996
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step230000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step230000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step230000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.04750221222639084, "frac_zero": 0.3870261609554291, "max": 1.9087411165237427, "mean": 0.1788419634103775, "min": -1.8098955154418945, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.5292224884033203, "unique_count": 1014601, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.04750286415219307, "frac_zero": 0.003529427107423544, "max": 1.0, "mean": 0.5875746607780457, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.26090526580810547, "unique_count": 943643, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step230000/metrics_compare.json
+[METRICS] feature-FID baseline=3.522867 pipeline=3.522867 delta=0.000000
+[METRICS] inception-FID baseline=78.649427 pipeline=78.649427 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=230000 fid=78.649427
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step235000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step235000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step235000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.03217753767967224, "frac_zero": 0.3598051369190216, "max": 1.7155170440673828, "mean": 0.1980704367160797, "min": -1.6463004350662231, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.49439114332199097, "unique_count": 1014108, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.03217792883515358, "frac_zero": 0.001566927065141499, "max": 1.0, "mean": 0.5980405211448669, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2452320158481598, "unique_count": 958271, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step235000/metrics_compare.json
+[METRICS] feature-FID baseline=3.622255 pipeline=3.622255 delta=0.000000
+[METRICS] inception-FID baseline=83.646512 pipeline=83.646512 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=235000 fid=83.646512
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step240000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step240000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step240000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.01833769492805004, "frac_zero": 0.5410606861114502, "max": 1.9489381313323975, "mean": -0.038901474326848984, "min": -1.7414944171905518, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.5386353135108948, "unique_count": 1014846, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.018337760120630264, "frac_zero": 0.011339973658323288, "max": 1.0, "mean": 0.48032858967781067, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.26725760102272034, "unique_count": 969578, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step240000/metrics_compare.json
+[METRICS] feature-FID baseline=0.604749 pipeline=0.604749 delta=0.000000
+[METRICS] inception-FID baseline=63.185889 pipeline=63.185889 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=240000 fid=63.185889
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step245000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step245000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step245000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.007331380154937506, "frac_zero": 0.4783163368701935, "max": 1.67577064037323, "mean": 0.04043835029006004, "min": -1.560714602470398, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.4097863733768463, "unique_count": 1016539, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.007331575732678175, "frac_zero": 0.0006906901253387332, "max": 1.0, "mean": 0.5200168490409851, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.20427964627742767, "unique_count": 983077, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step245000/metrics_compare.json
+[METRICS] feature-FID baseline=1.536902 pipeline=1.536902 delta=0.000000
+[METRICS] inception-FID baseline=86.745781 pipeline=86.745781 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=245000 fid=86.745781
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step250000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step250000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step250000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.020331770181655884, "frac_zero": 0.3486352860927582, "max": 1.791433334350586, "mean": 0.18777768313884735, "min": -1.7888482809066772, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.4764423668384552, "unique_count": 1014215, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.02033190056681633, "frac_zero": 0.001738085993565619, "max": 1.0, "mean": 0.5933069586753845, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.23688854277133942, "unique_count": 967877, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step250000/metrics_compare.json
+[METRICS] feature-FID baseline=3.317632 pipeline=3.317632 delta=0.000000
+[METRICS] inception-FID baseline=72.508476 pipeline=72.508476 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=250000 fid=72.508476
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step255000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step255000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step255000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.0008158854325301945, "frac_zero": 0.7261080741882324, "max": 1.6857349872589111, "mean": -0.26801958680152893, "min": -1.7389932870864868, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.4341276288032532, "unique_count": 1011864, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.0008158854325301945, "frac_zero": 0.01341595035046339, "max": 1.0, "mean": 0.3663950264453888, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.21620190143585205, "unique_count": 984641, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step255000/metrics_compare.json
+[METRICS] feature-FID baseline=2.894013 pipeline=2.894013 delta=0.000000
+[METRICS] inception-FID baseline=78.653630 pipeline=78.653630 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=255000 fid=78.653630
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step260000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step260000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step260000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.001204296830110252, "frac_zero": 0.7486402988433838, "max": 1.752862811088562, "mean": -0.3055709898471832, "min": -1.8143399953842163, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.4449782073497772, "unique_count": 1010503, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.001204296830110252, "frac_zero": 0.019700845703482628, "max": 1.0, "mean": 0.34783393144607544, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2212306261062622, "unique_count": 978417, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step260000/metrics_compare.json
+[METRICS] feature-FID baseline=4.151455 pipeline=4.151455 delta=0.000000
+[METRICS] inception-FID baseline=91.630866 pipeline=91.630866 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=260000 fid=91.630866
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step265000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step265000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step265000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.011250586248934269, "frac_zero": 0.470918744802475, "max": 1.6388214826583862, "mean": 0.03271590173244476, "min": -1.7031551599502563, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.4732760787010193, "unique_count": 1015859, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.011250846087932587, "frac_zero": 0.0032561849802732468, "max": 1.0, "mean": 0.5161121487617493, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.23569750785827637, "unique_count": 980114, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step265000/metrics_compare.json
+[METRICS] feature-FID baseline=0.799124 pipeline=0.799124 delta=0.000000
+[METRICS] inception-FID baseline=80.311552 pipeline=80.311552 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=265000 fid=80.311552
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step270000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step270000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step270000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.028595441952347755, "frac_zero": 0.4267118573188782, "max": 1.7577197551727295, "mean": 0.11311796307563782, "min": -1.7153311967849731, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.5102517008781433, "unique_count": 1015268, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.028595833107829094, "frac_zero": 0.0030646484810858965, "max": 1.0, "mean": 0.5556186437606812, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.25292083621025085, "unique_count": 963691, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step270000/metrics_compare.json
+[METRICS] feature-FID baseline=1.973654 pipeline=1.973654 delta=0.000000
+[METRICS] inception-FID baseline=72.564447 pipeline=72.564447 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=270000 fid=72.564447
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step275000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step275000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step275000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.005243098828941584, "frac_zero": 0.6334798336029053, "max": 2.020854949951172, "mean": -0.16987937688827515, "min": -1.8962641954421997, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.5003305077552795, "unique_count": 1014047, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.00524322921410203, "frac_zero": 0.01972949132323265, "max": 1.0, "mean": 0.41563090682029724, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.24817228317260742, "unique_count": 975007, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step275000/metrics_compare.json
+[METRICS] feature-FID baseline=1.679287 pipeline=1.679287 delta=0.000000
+[METRICS] inception-FID baseline=66.061820 pipeline=66.061820 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=275000 fid=66.061820
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step280000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step280000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step280000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.0029355469159781933, "frac_zero": 0.6408548355102539, "max": 1.7931485176086426, "mean": -0.1536477506160736, "min": -1.688861608505249, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.440997451543808, "unique_count": 1014072, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.0029356118757277727, "frac_zero": 0.006439583376049995, "max": 1.0, "mean": 0.42327219247817993, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.21980006992816925, "unique_count": 987809, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step280000/metrics_compare.json
+[METRICS] feature-FID baseline=1.692689 pipeline=1.692689 delta=0.000000
+[METRICS] inception-FID baseline=103.039180 pipeline=103.039180 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=280000 fid=103.039180
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step285000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step285000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step285000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.02560390532016754, "frac_zero": 0.45649439096450806, "max": 2.086822748184204, "mean": 0.084558866918087, "min": -1.648406982421875, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.47400736808776855, "unique_count": 1016141, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.025604035705327988, "frac_zero": 0.0020632161758840084, "max": 1.0, "mean": 0.5411286950111389, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2341938465833664, "unique_count": 966806, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step285000/metrics_compare.json
+[METRICS] feature-FID baseline=1.966499 pipeline=1.966499 delta=0.000000
+[METRICS] inception-FID baseline=80.274166 pipeline=80.274166 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=285000 fid=80.274166
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step290000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step290000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step290000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.00848932284861803, "frac_zero": 0.6141738295555115, "max": 1.9672677516937256, "mean": -0.13340094685554504, "min": -1.790274977684021, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.4925808310508728, "unique_count": 1015011, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.008489453233778477, "frac_zero": 0.016110220924019814, "max": 1.0, "mean": 0.4336368143558502, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2442239224910736, "unique_count": 974774, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step290000/metrics_compare.json
+[METRICS] feature-FID baseline=0.852616 pipeline=0.852616 delta=0.000000
+[METRICS] inception-FID baseline=58.978243 pipeline=58.978243 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=290000 fid=58.978243
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step295000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step295000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step295000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.014197004958987236, "frac_zero": 0.5922076106071472, "max": 1.8627856969833374, "mean": -0.09339258819818497, "min": -1.734557032585144, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.49972590804100037, "unique_count": 1015238, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.014197330921888351, "frac_zero": 0.008568033576011658, "max": 1.0, "mean": 0.45303231477737427, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.24809859693050385, "unique_count": 976415, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step295000/metrics_compare.json
+[METRICS] feature-FID baseline=0.626007 pipeline=0.626007 delta=0.000000
+[METRICS] inception-FID baseline=97.636709 pipeline=97.636709 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=295000 fid=97.636709
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step300000/_tmp_generate/grid.png
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step300000/_tmp_generate/samples.pt
+[EVAL] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step300000/_tmp_generate/stats.json
+[EVAL] sample_m11_summary={"dtype": "torch.float32", "frac_one": 0.05813762918114662, "frac_zero": 0.36272960901260376, "max": 1.7380638122558594, "mean": 0.22368204593658447, "min": -1.77346670627594, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.5411203503608704, "unique_count": 1013157, "unique_mode": "sampled"}
+[EVAL] sample_01_summary={"dtype": "torch.float32", "frac_one": 0.05813821777701378, "frac_zero": 0.0024630208499729633, "max": 1.0, "mean": 0.6099192500114441, "min": 0.0, "numel": 15360000, "shape": [5000, 3, 32, 32], "std": 0.2672218680381775, "unique_count": 933152, "unique_mode": "sampled"}
+[METRICS] wrote /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory/step300000/metrics_compare.json
+[METRICS] feature-FID baseline=4.579608 pipeline=4.579608 delta=0.000000
+[METRICS] inception-FID baseline=66.115842 pipeline=66.115842 delta=0.000000
+[TRAJ] current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 step=300000 fid=66.115842
+[DONE] label=current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000 out_dir=/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_supplement/O3/O3_pipe_strict_P4_deep_K100_seed2_300k_20260430_043839/trajectory
+[DONE] 2026-04-30T19:33:23Z gpu=3 label=current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000

@@ -1,0 +1,3 @@
+logical_run_id,reason,required,status,points_backfilled,notes
+current_cifar_paper:cifar10:pipe_P4_equal:seed2:h500000,long_horizon_mainline_gap,yes,backfilled_from_existing_metrics,100,Training and metrics already existed; final CSV FID/feature-FID/unique_ratio fields were blank and have been filled.
+current_cifar_paper:cifar10:pipe_P4_equal_K100:seed1:h300000,shallow_chain_control_gap,yes,backfilled_from_existing_metrics,60,Training and metrics already existed; final CSV FID/feature-FID/unique_ratio fields were blank and have been filled.

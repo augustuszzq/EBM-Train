@@ -1,0 +1,26 @@
+benchmark:
+  name: cifar10
+  conditional: false
+  num_classes: 0
+  image_size: 32
+  data_root: /eagle/lc-mpi/Zhiqing/ebm/data/cifar10
+  split_train: train
+  split_val: train
+train:
+  steps: 20000
+  batch_size: 64
+  K: 400
+  lr: 1e-4
+pipeline:
+  pipe_stages: 8
+  weight_mode: uniform
+  last2_beta: 0.01
+  stage_weights: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+long_k_scaling:
+  exp_id: L0_pipe_P8_equal_K400_s20k_seed1
+  stage_slices: [50, 50, 50, 50, 50, 50, 50, 50]
+  step_size: 0.0025
+  noise_std: 0.01
+  method: original_cifar_completion_aware_diagonal_objective
+  uses_drl_backbone: false
+  uses_imagenet32: false

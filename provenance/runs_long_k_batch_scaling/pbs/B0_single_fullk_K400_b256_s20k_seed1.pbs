@@ -1,0 +1,45 @@
+#!/bin/bash
+#PBS -A lc-mpi
+#PBS -l select=1:system=polaris
+#PBS -l walltime=16:00:00
+#PBS -l filesystems=home:eagle
+#PBS -q preemptable
+#PBS -N B0singlefullkK4
+#PBS -j oe
+#PBS -o /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_long_k_batch_scaling/logs/B0_single_fullk_K400_b256_s20k_seed1.pbs.out
+
+set -euo pipefail
+export PROJECT_DIR=/lus/eagle/projects/lc-mpi/Zhiqing/polaris_ebm
+export GROUP=long_k_batch_scaling
+export EXP_ID=B0_single_fullk_K400_b256_s20k_seed1
+export STORY='original CIFAR EBM K400 batch scaling; tests whether larger global/local batch exposes strict pipeline wall-clock advantage'
+export TRAIN_MODE=single_fullk
+export WORLD_SIZE=1
+export PIPE_STAGES=1
+export K=400
+export STEPS=20000
+export LR=1e-4
+export STEP_SIZE=0.0025
+export WEIGHT_MODE=deep_only
+export LAST2_BETA=0.01
+export SEED=1
+export NUM_NODES=1
+export PPN=1
+export EVAL_IMAGES=5000
+export NOTES='single-GPU full-K control at larger batch'
+export RUN_DIR=/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_long_k_batch_scaling/runs/B0/B0_single_fullk_K400_b256_s20k_seed1
+export MANIFEST_ROW_PATH=/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_long_k_batch_scaling/configs/B0_single_fullk_K400_b256_s20k_seed1.manifest_row.json
+export SAVE_EVERY=5000
+export VIS_EVERY=5000
+export BATCH_SIZE=256
+export NOISE_STD=0.01
+export LANGEVIN_SIGN=1.0
+export WEIGHT_DECAY=0.0
+export MAX_GRAD_NORM=0.0
+export DATA_DIR=/eagle/lc-mpi/Zhiqing/ebm/data/cifar10
+export CONFIG=/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_long_k_batch_scaling/configs/B0_single_fullk_K400_b256_s20k_seed1.yaml
+export SYNC_FRESH_INIT=1
+export DEBUG_LEVEL=1
+export LOG_EVERY=10
+cp /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_long_k_batch_scaling/configs/B0_single_fullk_K400_b256_s20k_seed1.yaml /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_long_k_batch_scaling/runs/B0/B0_single_fullk_K400_b256_s20k_seed1/experiment_config.yaml
+exec /usr/bin/bash /lus/eagle/projects/lc-mpi/Zhiqing/polaris_ebm/scripts/current/pbs_run_ablation_case.pbs

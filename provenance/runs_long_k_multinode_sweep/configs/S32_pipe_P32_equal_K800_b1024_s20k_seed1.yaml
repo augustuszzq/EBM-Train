@@ -1,0 +1,31 @@
+benchmark:
+  name: cifar10
+  conditional: false
+  num_classes: 0
+  image_size: 32
+  data_root: /eagle/lc-mpi/Zhiqing/ebm/data/cifar10
+  split_train: train
+  split_val: train
+train:
+  steps: 20000
+  batch_size: 1024
+  local_batch: 32
+  K: 800
+  lr: 1e-4
+  step_size: 0.00125
+  noise_std: 0.01
+pipeline:
+  pipe_stages: 32
+  weight_mode: uniform
+  last2_beta: 0.01
+  stage_slices: [25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25]
+multinode_k_sweep:
+  exp_id: S32_pipe_P32_equal_K800_b1024_s20k_seed1
+  scale_group: S32
+  world_size: 32
+  num_nodes: 8
+  ppn: 4
+  method: original_cifar_completion_aware_diagonal_objective
+  uses_drl_backbone: false
+  uses_imagenet32: false
+  objective_note: weights are applied to negative energy scalars, not images

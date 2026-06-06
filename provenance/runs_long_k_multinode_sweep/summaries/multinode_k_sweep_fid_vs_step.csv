@@ -1,0 +1,1 @@
+phase,scale_group,exp_id,train_mode,world_size,batch_size,local_batch,K,seed,step,fid_inception,fid_feature,unique_ratio,metrics_path

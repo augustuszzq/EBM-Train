@@ -1,0 +1,30 @@
+benchmark:
+  name: imagenet32
+  conditional: true
+  num_classes: 1000
+  image_size: 32
+  data_root: /eagle/lc-mpi/Zhiqing/polaris_ebm/data/imagenet32_real_smoke
+  split_train: train
+  split_val: val
+
+model:
+  family: ebm_conv
+  n_f: 48
+  conditioning: projection
+
+train:
+  steps: 20
+  batch_size: 16
+  K: 20
+  lr: 0.0001
+
+pipeline:
+  pipe_stages: 2
+  weight_mode: last2_beta
+  last2_beta: 0.01
+  stage_weights: [0.01, 0.99]
+
+eval:
+  num_images: 100
+  images_per_class: 1
+  classifier_metric: imagenet_top1

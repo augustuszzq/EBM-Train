@@ -1,0 +1,64 @@
+#!/bin/bash
+#PBS -A lc-mpi
+#PBS -l select=1:system=polaris
+#PBS -l walltime=08:00:00
+#PBS -l filesystems=home:eagle
+#PBS -q preemptable
+#PBS -N imnet32prep
+#PBS -j oe
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [[ -n "${PROJECT_DIR:-}" ]]; then
+  PROJECT_DIR="$(cd "${PROJECT_DIR}" && pwd)"
+elif [[ -n "${PBS_O_WORKDIR:-}" && -f "${PBS_O_WORKDIR}/scripts/current/export_hf_imagenet32.py" ]]; then
+  PROJECT_DIR="${PBS_O_WORKDIR}"
+else
+  PROJECT_DIR="$(cd "${SCRIPT_DIR}/../.." && pwd)"
+fi
+cd "${PROJECT_DIR}"
+
+module use /soft/modulefiles
+module load conda
+conda activate /home/kevienzzq/.conda/envs/llm-env
+
+export OPENBLAS_NUM_THREADS=1
+export OMP_NUM_THREADS=1
+export MKL_NUM_THREADS=1
+export NUMEXPR_NUM_THREADS=1
+export HF_HOME="${HF_HOME:-/eagle/lc-mpi/Zhiqing/.cache/huggingface}"
+
+OUT_ROOT="${OUT_ROOT:-/eagle/lc-mpi/Zhiqing/polaris_ebm/data/imagenet32}"
+CACHE_DIR="${CACHE_DIR:-${HF_HOME}/datasets}"
+STREAMING="${STREAMING:-0}"
+TRAIN_MAX_EXAMPLES="${TRAIN_MAX_EXAMPLES:-0}"
+VAL_MAX_EXAMPLES="${VAL_MAX_EXAMPLES:-0}"
+
+PY=/home/kevienzzq/.conda/envs/llm-env/bin/python
+
+run_export() {
+  local split="$1"
+  local max_examples="$2"
+  local cmd=(
+    "${PY}" -u "${PROJECT_DIR}/scripts/current/export_hf_imagenet32.py"
+    --out-root "${OUT_ROOT}"
+    --split "${split}"
+    --cache-dir "${CACHE_DIR}"
+  )
+  if [[ "${STREAMING}" == "1" ]]; then
+    cmd+=(--streaming)
+  fi
+  if [[ "${max_examples}" != "0" ]]; then
+    cmd+=(--max-examples "${max_examples}")
+  fi
+  printf '[EXPORT CMD] '
+  printf '%q ' "${cmd[@]}"
+  printf '\n'
+  "${cmd[@]}"
+}
+
+echo "[RUN] materializing ImageNet-32 into ${OUT_ROOT}"
+run_export train "${TRAIN_MAX_EXAMPLES}"
+run_export val "${VAL_MAX_EXAMPLES}"
+echo "[DONE] ImageNet-32 materialization ready at ${OUT_ROOT}"

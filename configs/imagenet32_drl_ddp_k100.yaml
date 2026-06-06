@@ -1,0 +1,38 @@
+benchmark:
+  name: imagenet32
+  conditional: true
+  num_classes: 1000
+  image_size: 32
+  data_root: /eagle/lc-mpi/Zhiqing/polaris_ebm/data/imagenet32
+  split_train: train
+  split_val: val
+
+model:
+  family: drl_resnet_energy
+  conditioning: ignored_labels_unconditional_energy
+  ch: 128
+  ch_mult: [1, 2, 2, 2]
+  num_res_blocks: 4
+  attention_resolutions: []
+  spectral_norm: true
+
+train:
+  steps: 300000
+  batch_size: 128
+  K: 100
+  lr: 0.00005
+  step_size: 0.005
+  noise_std: 0.005
+  clamp_x: true
+  max_grad_norm: 0.0
+
+pipeline:
+  pipe_stages: 1
+  weight_mode: deep_only
+  last2_beta: 0.01
+  stage_weights: [1.0]
+
+eval:
+  num_images: 50000
+  images_per_class: 50
+  classifier_metric: unconditional_first_pass

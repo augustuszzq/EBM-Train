@@ -1,0 +1,94 @@
+{
+  "active": {},
+  "completed": [
+    {
+      "expected_points": "60",
+      "log_path": "/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_followup/O2/O2_pipe_strict_P8_deep_K100_seed1_300k_20260415_152655/trajectory/blocked_backfill.log",
+      "logical_run_id": "current_cifar_paper:cifar10:pipe_P8_deepest:seed1:h300000",
+      "out_dir": "/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_followup/O2/O2_pipe_strict_P8_deep_K100_seed1_300k_20260415_152655/trajectory",
+      "points": "60",
+      "returncode": "0"
+    },
+    {
+      "expected_points": "60",
+      "log_path": "/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_followup/O2/O2_pipe_strict_P16_uniform_K100_seed1_300k_20260415_152655/trajectory/blocked_backfill.log",
+      "logical_run_id": "current_cifar_paper:cifar10:pipe_P16_equal:seed1:h300000",
+      "out_dir": "/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_followup/O2/O2_pipe_strict_P16_uniform_K100_seed1_300k_20260415_152655/trajectory",
+      "points": "60",
+      "returncode": "0"
+    },
+    {
+      "expected_points": "100",
+      "log_path": "/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_followup/O4/O4_single_fullk_K100_seed2_500k_retry_20260421_223303/trajectory/blocked_backfill.log",
+      "logical_run_id": "current_cifar_paper:cifar10:single_P1_terminal:seed2:h500000",
+      "out_dir": "/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_followup/O4/O4_single_fullk_K100_seed2_500k_retry_20260421_223303/trajectory",
+      "points": "100",
+      "returncode": "0"
+    },
+    {
+      "expected_points": "100",
+      "log_path": "/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_followup/O4/O4_single_fullk_K100_seed3_500k_20260415_152655/trajectory/blocked_backfill.log",
+      "logical_run_id": "current_cifar_paper:cifar10:single_P1_terminal:seed3:h500000",
+      "out_dir": "/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_followup/O4/O4_single_fullk_K100_seed3_500k_20260415_152655/trajectory",
+      "points": "100",
+      "returncode": "0"
+    },
+    {
+      "expected_points": "100",
+      "log_path": "/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_followup/O4/O4_pipe_strict_P4_deep_K100_seed1_500k_20260416_184021/trajectory/blocked_backfill.log",
+      "logical_run_id": "current_cifar_paper:cifar10:pipe_P4_deepest:seed1:h500000",
+      "out_dir": "/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_followup/O4/O4_pipe_strict_P4_deep_K100_seed1_500k_20260416_184021/trajectory",
+      "points": "100",
+      "returncode": "0"
+    },
+    {
+      "expected_points": "100",
+      "log_path": "/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_followup/O4/O4_pipe_strict_P4_deep_K100_seed2_500k_20260416_184021/trajectory/blocked_backfill.log",
+      "logical_run_id": "current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h500000",
+      "out_dir": "/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_followup/O4/O4_pipe_strict_P4_deep_K100_seed2_500k_20260416_184021/trajectory",
+      "points": "100",
+      "returncode": "0"
+    },
+    {
+      "expected_points": "60",
+      "log_path": "/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_followup/O5/O5_ddp_fullk_K25_seed1_300k_20260416_184021/trajectory/blocked_backfill.log",
+      "logical_run_id": "current_cifar_paper:cifar10:ddp_P1_terminal_K25:seed1:h300000",
+      "out_dir": "/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_followup/O5/O5_ddp_fullk_K25_seed1_300k_20260416_184021/trajectory",
+      "points": "60",
+      "returncode": "0"
+    },
+    {
+      "expected_points": "100",
+      "log_path": "/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_followup/O4/O4_pipe_strict_P4_deep_K100_seed3_500k_20260416_184021/trajectory/blocked_backfill.log",
+      "logical_run_id": "current_cifar_paper:cifar10:pipe_P4_deepest:seed3:h500000",
+      "out_dir": "/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_followup/O4/O4_pipe_strict_P4_deep_K100_seed3_500k_20260416_184021/trajectory",
+      "points": "100",
+      "returncode": "0"
+    },
+    {
+      "expected_points": "60",
+      "log_path": "/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_followup/O5/O5_ddp_fullk_K50_seed1_300k_20260416_184021/trajectory/blocked_backfill.log",
+      "logical_run_id": "current_cifar_paper:cifar10:ddp_P1_terminal_K50:seed1:h300000",
+      "out_dir": "/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_followup/O5/O5_ddp_fullk_K50_seed1_300k_20260416_184021/trajectory",
+      "points": "60",
+      "returncode": "0"
+    },
+    {
+      "expected_points": "60",
+      "log_path": "/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_followup/O5/O5_ddp_fullk_K100_seed1_300k_20260416_184021/trajectory/blocked_backfill.log",
+      "logical_run_id": "current_cifar_paper:cifar10:ddp_P1_terminal_K100:seed1:h300000",
+      "out_dir": "/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_followup/O5/O5_ddp_fullk_K100_seed1_300k_20260416_184021/trajectory",
+      "points": "60",
+      "returncode": "0"
+    },
+    {
+      "expected_points": "60",
+      "log_path": "/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_followup/O5/O5_pipe_strict_P4_deep_K100_seed1_300k_resume_20260421_223303/trajectory/blocked_backfill.log",
+      "logical_run_id": "current_cifar_paper:cifar10:pipe_P4_deepest_K100:seed1:h300000",
+      "out_dir": "/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_objective_first_followup/O5/O5_pipe_strict_P4_deep_K100_seed1_300k_resume_20260421_223303/trajectory",
+      "points": "60",
+      "returncode": "0"
+    }
+  ],
+  "queue_remaining": 0
+}

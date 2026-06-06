@@ -1,0 +1,46 @@
+#!/bin/bash
+#PBS -A lc-mpi
+#PBS -l select=1:system=polaris
+#PBS -l walltime=72:00:00
+#PBS -l filesystems=home:eagle
+#PBS -q preemptable
+#PBS -N M1S16singlefull
+#PBS -j oe
+#PBS -o /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_long_k_multinode_sweep/logs/M1_S16_single_fullk_K1600_b512_s20k_seed1_to300k.pbs.out
+
+set -euo pipefail
+export PROJECT_DIR=/lus/eagle/projects/lc-mpi/Zhiqing/polaris_ebm
+export GROUP=long_k_multinode_300k
+export EXP_ID=M1_S16_single_fullk_K1600_b512_s20k_seed1_to300k
+export STORY='300k continuation from completed M0 long-K multinode checkpoint'
+export TRAIN_MODE=single_fullk
+export WORLD_SIZE=1
+export PIPE_STAGES=1
+export K=1600
+export STEPS=300000
+export LR=1e-4
+export STEP_SIZE=0.000625
+export WEIGHT_MODE=deep_only
+export LAST2_BETA=0.01
+export SEED=1
+export NUM_NODES=1
+export PPN=1
+export EVAL_IMAGES=5000
+export NOTES='M1 300k continuation from S16_single_fullk_K1600_b512_s20k_seed1'
+export RUN_DIR=/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_long_k_multinode_sweep/runs/M1_300k/S16/M1_S16_single_fullk_K1600_b512_s20k_seed1_to300k
+export MANIFEST_ROW_PATH=/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_long_k_multinode_sweep/configs/M1_S16_single_fullk_K1600_b512_s20k_seed1_to300k.manifest_row.json
+export SAVE_EVERY=5000
+export VIS_EVERY=5000
+export BATCH_SIZE=512
+export NOISE_STD=0.01
+export LANGEVIN_SIGN=1.0
+export WEIGHT_DECAY=0.0
+export MAX_GRAD_NORM=0.0
+export DATA_DIR=/eagle/lc-mpi/Zhiqing/ebm/data/cifar10
+export CONFIG=/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_long_k_multinode_sweep/configs/M1_S16_single_fullk_K1600_b512_s20k_seed1_to300k.yaml
+export SYNC_FRESH_INIT=1
+export DEBUG_LEVEL=1
+export LOG_EVERY=10
+export RESUME_CKPT=auto
+cp /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_long_k_multinode_sweep/configs/M1_S16_single_fullk_K1600_b512_s20k_seed1_to300k.yaml /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_long_k_multinode_sweep/runs/M1_300k/S16/M1_S16_single_fullk_K1600_b512_s20k_seed1_to300k/experiment_config.yaml
+exec /usr/bin/bash /lus/eagle/projects/lc-mpi/Zhiqing/polaris_ebm/scripts/current/pbs_run_ablation_case.pbs

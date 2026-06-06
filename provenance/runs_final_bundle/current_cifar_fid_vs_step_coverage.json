@@ -1,0 +1,16 @@
+{
+  "backup_before_supplement": "/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_final_bundle/current_cifar_fid_vs_step_pre_supplement_20260430_200722.csv",
+  "blocked_or_incomplete_runs": 0,
+  "complete_trajectory_runs": 62,
+  "completed_logical_runs": 62,
+  "supplemental_logical_runs": 5,
+  "supplemental_points_by_run": {
+    "current_cifar_paper:cifar10:pipe_P4_deepest:seed2:h300000": 60,
+    "current_cifar_paper:cifar10:pipe_P4_deepest:seed3:h300000": 60,
+    "current_cifar_paper:cifar10:pipe_P4_equal:seed4:h500000": 100,
+    "current_cifar_paper:cifar10:pipe_P4_equal:seed5:h500000": 100,
+    "current_cifar_paper:cifar10:pipe_P4_equal_K100:seed2:h300000": 60
+  },
+  "supplemental_rows_added": 380,
+  "total_current_cifar_logical_runs": 62
+}

@@ -1,0 +1,1 @@
+phase,exp_id,train_mode,batch_size,local_batch,K,steps,seed,wallclock_sec,gpu_hours,step_time_sec,throughput

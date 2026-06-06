@@ -1,0 +1,21 @@
+benchmark:
+  name: cifar10
+  conditional: false
+  image_size: 32
+  data_root: /eagle/lc-mpi/Zhiqing/ebm/data/cifar10
+  split_train: train
+  split_val: train
+train:
+  steps: 300000
+  batch_size: 1024
+  K: 800
+  lr: 1e-4
+  step_size: 0.00125
+pipeline:
+  pipe_stages: 1
+  weight_mode: deep_only
+  stage_slices: [800]
+m1_300k_continuation:
+  source_exp_id: S32_single_fullk_K800_b1024_s20k_seed1
+  source_checkpoint: /eagle/lc-mpi/Zhiqing/polaris_ebm/runs_long_k_multinode_sweep/runs/M1_300k/S32/M1_S32_single_fullk_K800_b1024_s20k_seed1_to300k/checkpoints/ckpt_step14999.pt
+  objective_note: weights are applied to negative energy scalars, not images
