@@ -1,0 +1,14 @@
+path,source,status,notes
+results/current_cifar/fid_vs_step.csv,runs_final_bundle/current_cifar_fid_vs_step.csv,ready,Canonical current-CIFAR FID-vs-step table.
+results/current_cifar/fid_vs_step_with_wallclock.csv,runs_final_bundle/current_cifar_fid_vs_step_with_wallclock.csv,ready,Canonical current-CIFAR FID-vs-step table with wall-clock and GPU-hour columns.
+results/current_cifar/seed_fid_trajectory_points.csv,runs_final_bundle/seed_fid_trajectory_points.csv,ready,Seed-level trajectory points.
+results/current_cifar/ablation_final_summary.csv,runs_final_bundle/ablation_final_summary.csv,ready,Current-CIFAR final and best summaries.
+results/current_cifar/ablation_500k_summary.csv,runs_final_bundle/ablation_500k_summary.csv,ready,Current-CIFAR 500k long-horizon summary.
+results/current_cifar/pipeline_then_weighting_replay_summary.csv,runs_final_bundle/pipeline_then_weighting_replay_summary.csv,ready,Pipeline-then-weighting replay summary.
+results/long_k/fid_vs_step.csv,runs_long_k_scaling/summaries/long_k_fid_vs_step.csv,rolling_placeholder,Header-only snapshot; refresh after long-K collection.
+results/long_k/wallclock_summary.csv,runs_long_k_scaling/summaries/long_k_wallclock_summary.csv,rolling_placeholder,Header-only snapshot; refresh after long-K collection.
+results/long_k/best_final_summary.csv,runs_long_k_scaling/summaries/long_k_best_final_summary.csv,rolling_placeholder,Header-only snapshot; refresh after long-K collection.
+results/batch_scaling/fid_vs_step.csv,runs_long_k_batch_scaling/summaries/batch_scaling_fid_vs_step.csv,rolling_placeholder,Header-only snapshot; refresh after batch-scaling collection.
+results/batch_scaling/wallclock_summary.csv,runs_long_k_batch_scaling/summaries/batch_scaling_wallclock_summary.csv,rolling_placeholder,Header-only snapshot; refresh after batch-scaling collection.
+results/multinode_scaling/fid_vs_step.csv,runs_long_k_multinode_sweep/summaries/multinode_k_sweep_fid_vs_step.csv,rolling_placeholder,Header-only snapshot; refresh after multinode scaling collection.
+results/multinode_scaling/wallclock_summary.csv,runs_long_k_multinode_sweep/summaries/multinode_k_sweep_wallclock_summary.csv,rolling_placeholder,Header-only snapshot; refresh after multinode scaling collection.
