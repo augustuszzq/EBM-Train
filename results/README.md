@@ -13,10 +13,16 @@ This directory contains lightweight, collaborator-facing result tables. It is in
 
 - `current_cifar/fid_vs_step.csv`: canonical 5k-spaced FID trajectory table for current CIFAR paper runs.
 - `current_cifar/fid_vs_step_with_wallclock.csv`: same trajectory table with wall-clock and GPU-hour columns.
+- `current_cifar/training_time_by_run.csv`: one row per logical run with total per-run training wall-clock and GPU-hours.
+- `current_cifar/training_time_totals.csv`: aggregate training duration totals by ledger, phase group, regime, and paper role.
 - `current_cifar/seed_fid_trajectory_points.csv`: seed-level FID trajectory points.
 - `current_cifar/ablation_final_summary.csv`: final/best summary for current CIFAR ablations.
 - `current_cifar/ablation_500k_summary.csv`: 500k long-horizon summary.
 - `current_cifar/pipeline_then_weighting_replay_summary.csv`: replay summary for the pipeline-then-weighting analysis.
+
+## Training Time Semantics
+
+Training-time totals are summed per logical run. They are not calendar makespan, because many jobs ran concurrently or through resume fragments. Use `train_gpu_hours` or `total_train_gpu_hours` when comparing compute usage across GPU counts.
 
 ## Update Policy
 

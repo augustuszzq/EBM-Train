@@ -1,6 +1,8 @@
 path,source,status,notes
 results/current_cifar/fid_vs_step.csv,runs_final_bundle/current_cifar_fid_vs_step.csv,ready,Canonical current-CIFAR FID-vs-step table.
 results/current_cifar/fid_vs_step_with_wallclock.csv,runs_final_bundle/current_cifar_fid_vs_step_with_wallclock.csv,ready,Canonical current-CIFAR FID-vs-step table with wall-clock and GPU-hour columns.
+results/current_cifar/training_time_by_run.csv,derived from results/current_cifar/fid_vs_step_with_wallclock.csv,ready,One row per logical run with total per-run training wall-clock and GPU-hours.
+results/current_cifar/training_time_totals.csv,derived from results/current_cifar/fid_vs_step_with_wallclock.csv,ready,Aggregate training duration totals by ledger phase regime and paper role.
 results/current_cifar/seed_fid_trajectory_points.csv,runs_final_bundle/seed_fid_trajectory_points.csv,ready,Seed-level trajectory points.
 results/current_cifar/ablation_final_summary.csv,runs_final_bundle/ablation_final_summary.csv,ready,Current-CIFAR final and best summaries.
 results/current_cifar/ablation_500k_summary.csv,runs_final_bundle/ablation_500k_summary.csv,ready,Current-CIFAR 500k long-horizon summary.
