@@ -26,6 +26,72 @@ This directory contains lightweight, collaborator-facing result tables. It is in
 
 Training-time totals are summed per logical run. They are not calendar makespan, because many jobs ran concurrently or through resume fragments. Use `train_gpu_hours` or `total_train_gpu_hours` when comparing compute usage across GPU counts.
 
+## Current CIFAR Type-Average Training Time
+
+These are actual per-logical-run training wall-clock averages from `current_cifar/training_time_regime_summary.csv`.
+
+| horizon | role | regime | P | weighting | K | runs | mean wall-clock hours |
+|---:|---|---|---:|---|---:|---:|---:|
+| 300k | control | ddp_strict | 1 | terminal | 25 | 1 | 3.55 |
+| 300k | control | ddp_strict | 1 | terminal | 50 | 1 | 5.18 |
+| 300k | control | ddp_strict | 1 | terminal | 100 | 2 | 8.40 |
+| 300k | headline | ddp_strict | 1 | terminal | 100 | 4 | 8.38 |
+| 300k | appendix | pipeline | 4 | deepest | 100 | 2 | 3.59 |
+| 300k | control | pipeline | 4 | equal | 100 | 1 | 3.55 |
+| 300k | control | single_emulation | 2 | deepest | 100 | 1 | 8.46 |
+| 300k | headline | single_emulation | 2 | deepest | 100 | 2 | 8.48 |
+| 300k | control | single_emulation | 2 | equal | 100 | 1 | 8.49 |
+| 300k | headline | single_emulation | 2 | equal | 100 | 2 | 8.52 |
+| 300k | control | single_emulation | 4 | deepest | 100 | 1 | 8.75 |
+| 300k | control | single_emulation | 4 | equal | 100 | 1 | 8.76 |
+| 300k | appendix | single_emulation | 8 | deepest | 100 | 1 | 9.34 |
+| 300k | appendix | single_emulation | 8 | equal | 100 | 1 | 9.11 |
+| 300k | appendix | single_emulation | 16 | deepest | 100 | 1 | 10.54 |
+| 300k | appendix | single_emulation | 16 | equal | 100 | 1 | 10.52 |
+| 300k | control | single_strict | 1 | terminal | 100 | 1 | 8.31 |
+| 300k | headline | single_strict | 1 | terminal | 100 | 2 | 6.89 |
+| 300k | control | strict_pipeline | 2 | deepest | 100 | 1 | 4.95 |
+| 300k | control | strict_pipeline | 2 | equal | 100 | 3 | 4.90 |
+| 300k | control | strict_pipeline | 4 | deepest | 100 | 2 | 3.28 |
+| 300k | control | strict_pipeline | 4 | equal | 100 | 2 | 3.58 |
+| 300k | headline | strict_pipeline | 4 | equal | 100 | 4 | 3.33 |
+| 300k | appendix | strict_pipeline | 8 | deepest | 100 | 1 | 19.69 |
+| 300k | appendix | strict_pipeline | 8 | equal | 100 | 1 | 3.20 |
+| 300k | appendix | strict_pipeline | 16 | deepest | 100 | 1 | 23.53 |
+| 300k | appendix | strict_pipeline | 16 | equal | 100 | 1 | 22.73 |
+| 500k | headline | ddp_strict | 1 | terminal | 100 | 3 | 13.17 |
+| 500k | headline | pipeline | 4 | equal | 100 | 2 | 5.94 |
+| 500k | headline | single_emulation | 2 | deepest | 100 | 3 | 13.91 |
+| 500k | headline | single_emulation | 2 | equal | 100 | 3 | 14.13 |
+| 500k | headline | single_strict | 1 | terminal | 100 | 3 | 13.87 |
+| 500k | control | strict_pipeline | 4 | deepest | 100 | 3 | 5.97 |
+| 500k | headline | strict_pipeline | 4 | equal | 100 | 3 | 5.98 |
+
+## Long-K M1 300k Validation Time
+
+These are long-K validation wall-clock estimates for the 300k target. Completed runs are still shown using the same `300k * recent median iter_ms` estimate so the table has one consistent logical-run timing convention. The `latest step` column records the current observed progress at the time this table was prepared.
+
+| run | latest step | progress | median iter ms | wall-clock hours |
+|---|---:|---:|---:|---:|
+| M1_S16_ddp_fullk_K400_b512_s20k_seed1_to300k | 290362 | 96.8% | 1672.4 | 139.36 |
+| M1_S16_ddp_fullk_K800_b512_s20k_seed1_to300k | 130196 | 43.4% | 2958.7 | 246.56 |
+| M1_S16_ddp_fullk_K1600_b512_s20k_seed1_to300k | 66817 | 22.3% | 5624.2 | 468.69 |
+| M1_S16_pipe_P16_equal_K400_b512_s20k_seed1_to300k | 299999 | 100.0% | 419.6 | 34.97 |
+| M1_S16_pipe_P16_equal_K800_b512_s20k_seed1_to300k | 299999 | 100.0% | 528.1 | 44.01 |
+| M1_S16_pipe_P16_equal_K1600_b512_s20k_seed1_to300k | 50667 | 16.9% | 681.9 | 56.82 |
+| M1_S16_single_fullk_K400_b512_s20k_seed1_to300k | 265021 | 88.3% | 2039.0 | 169.92 |
+| M1_S16_single_fullk_K800_b512_s20k_seed1_to300k | 110302 | 36.8% | 4048.3 | 337.36 |
+| M1_S16_single_fullk_K1600_b512_s20k_seed1_to300k | 61383 | 20.5% | 7949.5 | 662.46 |
+| M1_S32_ddp_fullk_K400_b1024_s20k_seed1_to300k | 75820 | 25.3% | 1741.5 | 145.12 |
+| M1_S32_ddp_fullk_K800_b1024_s20k_seed1_to300k | 20144 | 6.7% | 3092.9 | 257.74 |
+| M1_S32_ddp_fullk_K1600_b1024_s20k_seed1_to300k | 30113 | 10.0% | 5772.0 | 481.00 |
+| M1_S32_pipe_P32_equal_K400_b1024_s20k_seed1_to300k | 100200 | 33.4% | 441.3 | 36.77 |
+| M1_S32_pipe_P32_equal_K800_b1024_s20k_seed1_to300k | 299999 | 100.0% | 483.3 | 40.28 |
+| M1_S32_pipe_P32_equal_K1600_b1024_s20k_seed1_to300k | 299999 | 100.0% | 582.6 | 48.55 |
+| M1_S32_single_fullk_K400_b1024_s20k_seed1_to300k | 115089 | 38.4% | 3906.4 | 325.53 |
+| M1_S32_single_fullk_K800_b1024_s20k_seed1_to300k | 65081 | 21.7% | 7693.9 | 641.16 |
+| M1_S32_single_fullk_K1600_b1024_s20k_seed1_to300k | 25032 | 8.3% | 15333.8 | 1277.82 |
+
 ## Update Policy
 
 Future collectors should write final CSV outputs into the appropriate subdirectory here, using stable filenames:
