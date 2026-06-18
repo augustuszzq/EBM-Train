@@ -14,6 +14,11 @@ import torch.nn as nn
 from torch.nn.parallel import DistributedDataParallel as DDP
 
 try:
+    from torch.distributed.fsdp import FullyShardedDataParallel as FSDP
+except Exception:  # pragma: no cover - optional backend on older torch builds
+    FSDP = None
+
+try:
     from torchvision import datasets, transforms
 except Exception:
     datasets = None
@@ -149,6 +154,13 @@ def parse_args() -> argparse.Namespace:
 
     ap.add_argument("--model_scale", type=str, default="small", choices=["small", "custom"])
     ap.add_argument("--n_f", type=int, default=64)
+    ap.add_argument(
+        "--parallel_backend",
+        type=str,
+        default=os.environ.get("PARALLEL_BACKEND", "ddp"),
+        choices=["ddp", "fsdp"],
+        help="distributed model wrapper; default ddp preserves existing runs",
+    )
 
     ap.add_argument("--output_dir", type=str, default="./runs_dual")
     ap.add_argument("--run_tag", type=str, default=os.environ.get("RUN_TAG", ""))
@@ -433,9 +445,9 @@ def parse_args() -> argparse.Namespace:
 
 
 class EnergyModel(nn.Module):
-    def __init__(self, n_c: int = 3, n_f: int = 64, leak: float = 0.2):
+    def __init__(self, n_c: int = 3, n_f: int = 64, leak: float = 0.2, image_size: int = 32):
         super().__init__()
-        self.net = nn.Sequential(
+        layers: List[nn.Module] = [
             nn.Conv2d(n_c, n_f, 3, 1, 1),
             nn.LeakyReLU(leak, inplace=True),
             nn.Conv2d(n_f, n_f * 2, 4, 2, 1),
@@ -444,11 +456,30 @@ class EnergyModel(nn.Module):
             nn.LeakyReLU(leak, inplace=True),
             nn.Conv2d(n_f * 4, n_f * 8, 4, 2, 1),
             nn.LeakyReLU(leak, inplace=True),
-            nn.Conv2d(n_f * 8, 1, 4, 1, 0),
-        )
+        ]
+        if int(image_size) != 32:
+            layers.append(nn.AdaptiveAvgPool2d((4, 4)))
+        layers.append(nn.Conv2d(n_f * 8, 1, 4, 1, 0))
+        self.net = nn.Sequential(*layers)
 
     def forward(self, x: t.Tensor) -> t.Tensor:
         return self.net(x).view(x.size(0))
+
+
+def disable_inplace_activations(module: nn.Module) -> int:
+    """Disable activation in-place writes for wrappers that expose parameter views.
+
+    FSDP can materialize autograd views during forward/all-gather. In-place
+    activations are safe in the historical DDP path but can trip autograd view
+    checks under FSDP, so this is applied only for parallel_backend=fsdp.
+    """
+    changed = 0
+    for child in module.modules():
+        if isinstance(child, (nn.ReLU, nn.LeakyReLU, nn.ELU, nn.SELU, nn.CELU)):
+            if getattr(child, "inplace", False):
+                child.inplace = False
+                changed += 1
+    return changed
 
 
 def build_cifar10(data_dir: str):
@@ -1561,13 +1592,32 @@ def main() -> None:
     t.cuda.manual_seed_all(args.seed + rank)
 
     model = build_energy_model(runtime=runtime, n_f=args.n_f, unconditional_cls=EnergyModel).cuda()
-    ddp_model = DDP(
-        model,
-        process_group=all_group,
-        device_ids=[local_rank],
-        output_device=local_rank,
-        broadcast_buffers=False,
-    )
+    fsdp_inplace_disabled = 0
+    if str(args.parallel_backend) == "fsdp":
+        if FSDP is None:
+            raise RuntimeError("parallel_backend=fsdp requested but torch.distributed.fsdp is unavailable")
+        fsdp_inplace_disabled = disable_inplace_activations(model)
+        ddp_model = FSDP(
+            model,
+            process_group=all_group,
+            device_id=t.device("cuda", local_rank),
+            sync_module_states=True,
+        )
+    else:
+        ddp_model = DDP(
+            model,
+            process_group=all_group,
+            device_ids=[local_rank],
+            output_device=local_rank,
+            broadcast_buffers=False,
+        )
+    if rank == 0:
+        total_params = sum(p.numel() for p in ddp_model.parameters())
+        print(
+            "[MODEL] parallel_backend=%s n_f=%d params_local_or_replicated=%d fsdp_inplace_disabled=%d"
+            % (str(args.parallel_backend), int(args.n_f), int(total_params), int(fsdp_inplace_disabled)),
+            flush=True,
+        )
     optimizer = t.optim.Adam(
         ddp_model.parameters(),
         lr=args.lr,
@@ -1792,9 +1842,12 @@ def main() -> None:
         # Step 0: all ranks enter step together.
         dist.barrier(group=all_group, device_ids=[local_rank])
 
-        # Step 1: keep explicit model broadcast to reduce state divergence while debugging.
-        broadcast_model_state(ddp_model.module, src_rank=trainer_root, group=all_group)
-        dist.barrier(group=all_group, device_ids=[local_rank])
+        # Step 1: keep explicit model broadcast for DDP debugging. FSDP owns parameter
+        # synchronization and sharding; broadcasting wrapped module tensors would
+        # break the sharded-parameter contract.
+        if str(args.parallel_backend) != "fsdp":
+            broadcast_model_state(ddp_model.module, src_rank=trainer_root, group=all_group)
+            dist.barrier(group=all_group, device_ids=[local_rank])
 
         batch = next(data_iter)
         pos, pos_labels = unpack_batch(batch, device=t.device("cuda", local_rank), conditional=runtime.conditional)
@@ -1870,9 +1923,10 @@ def main() -> None:
                 steps_done_buf.zero_()
                 valid_buf.fill_(True)
         sample_t0 = time.time()
+        sample_model = ddp_model if str(args.parallel_backend) == "fsdp" else model
         if runtime.conditional:
             chain_out = langevin_sample_conditional(
-                model=model,
+                model=sample_model,
                 chain=chain_buf,
                 labels=label_buf,
                 k_steps=(k_slice if use_pipeline else int(args.K)),
@@ -1885,7 +1939,7 @@ def main() -> None:
             )
         else:
             chain_out = langevin_sample(
-                model=model,
+                model=sample_model,
                 chain=chain_buf,
                 k_steps=(k_slice if use_pipeline else int(args.K)),
                 langevin_sign=float(args.langevin_sign),

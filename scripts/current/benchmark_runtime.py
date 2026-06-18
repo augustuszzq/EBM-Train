@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import inspect
 from pathlib import Path
 from typing import Optional, Sequence
 
@@ -17,10 +18,14 @@ except Exception:  # pragma: no cover
 
 try:
     from benchmark_config import BenchmarkConfig, load_benchmark_config
+    from celebahq256_data import build_celebahq256_dataset
+    from celebahq256_latent_data import build_celebahq256_latent_dataset
     from conditional_model import ConditionalEnergyModel
     from imagenet32_data import MaterializedImageNet32Dataset, get_benchmark_data_spec
 except Exception:
     from polaris_ebm.scripts.current.benchmark_config import BenchmarkConfig, load_benchmark_config
+    from polaris_ebm.scripts.current.celebahq256_data import build_celebahq256_dataset
+    from polaris_ebm.scripts.current.celebahq256_latent_data import build_celebahq256_latent_dataset
     from polaris_ebm.scripts.current.conditional_model import ConditionalEnergyModel
     from polaris_ebm.scripts.current.imagenet32_data import (
         MaterializedImageNet32Dataset,
@@ -55,11 +60,12 @@ def resolve_benchmark_runtime(config_path: str = "", data_dir: str = "./data/cif
         )
     cfg = load_benchmark_config(text)
     spec = get_benchmark_data_spec(cfg.benchmark.name)
+    channels = 4 if spec.name == "celebahq256_latent" else 3
     return BenchmarkRuntime(
         name=spec.name,
         conditional=spec.conditional,
         num_classes=spec.num_classes,
-        image_shape=(3, spec.image_size, spec.image_size),
+        image_shape=(channels, spec.image_size, spec.image_size),
         data_root=cfg.benchmark.data_root,
         split_train=cfg.benchmark.split_train,
         split_val=cfg.benchmark.split_val,
@@ -72,7 +78,13 @@ def build_energy_model(runtime: BenchmarkRuntime, n_f: int, unconditional_cls=No
         return ConditionalEnergyModel(n_f=n_f, num_classes=runtime.num_classes, image_size=runtime.image_shape[-1])
     if unconditional_cls is None:
         raise ValueError("unconditional_cls is required for unconditional benchmark runtime")
-    return unconditional_cls(n_f=n_f)
+    signature = inspect.signature(unconditional_cls)
+    kwargs = {"n_f": n_f}
+    if "n_c" in signature.parameters:
+        kwargs["n_c"] = int(runtime.image_shape[0])
+    if "image_size" in signature.parameters:
+        kwargs["image_size"] = runtime.image_shape[-1]
+    return unconditional_cls(**kwargs)
 
 
 def energy_call(model, x: t.Tensor, labels: Optional[t.Tensor] = None) -> t.Tensor:
@@ -119,6 +131,16 @@ def build_dataset(runtime: BenchmarkRuntime, cifar_builder=None, train: bool = T
         )
         split = "train" if train else "valid"
         return datasets.CelebA(root=runtime.data_root, split=split, target_type="identity", download=False, transform=tfm)
+    if runtime.name == "celebahq256":
+        split = runtime.split_train if train else runtime.split_val
+        return build_celebahq256_dataset(
+            root=runtime.data_root,
+            split=split,
+            image_size=runtime.image_shape[-1],
+        )
+    if runtime.name == "celebahq256_latent":
+        split = runtime.split_train if train else runtime.split_val
+        return build_celebahq256_latent_dataset(root=runtime.data_root, split=split)
     raise ValueError(f"unsupported benchmark runtime: {runtime.name}")
 
 

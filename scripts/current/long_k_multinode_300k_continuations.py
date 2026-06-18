@@ -15,6 +15,7 @@ from pathlib import Path
 BUNDLE_ROOT = Path("/eagle/lc-mpi/Zhiqing/polaris_ebm/runs_long_k_multinode_sweep")
 PROJECT_DIR = Path("/lus/eagle/projects/lc-mpi/Zhiqing/polaris_ebm")
 TARGET_STEPS = 300000
+DEFAULT_PBS_ACCOUNT = os.environ.get("PBS_ACCOUNT", "sbi-fair")
 
 FIELDS = [
     "phase",
@@ -63,6 +64,20 @@ ATTEMPT_FIELDS = [
     "submitted_at",
     "status_hint",
 ]
+
+STOPLIST_PATH = BUNDLE_ROOT / "summaries" / "m1_300k_stoplist.txt"
+
+
+def read_stoplist():
+    if not STOPLIST_PATH.exists():
+        return set()
+    skipped = set()
+    for line in STOPLIST_PATH.read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        skipped.add(line.split()[0])
+    return skipped
 
 RESUME_FIELDS = [
     "old_job_id",
@@ -238,7 +253,7 @@ def pbs_text(row):
     return "\n".join(
         [
             "#!/bin/bash",
-            "#PBS -A lc-mpi",
+            "#PBS -A %s" % row.get("pbs_account", DEFAULT_PBS_ACCOUNT),
             "#PBS -l select=%s:system=polaris" % row["num_nodes"],
             "#PBS -l walltime=%s" % row["train_walltime"],
             "#PBS -l filesystems=home:eagle",
@@ -288,6 +303,7 @@ def build_rows(include_partial=False):
         row["manifest_row_path"] = str(BUNDLE_ROOT / "configs" / ("%s.manifest_row.json" % row["exp_id"]))
         row["run_dir"] = str(BUNDLE_ROOT / "runs" / "M1_300k" / row["scale_group"] / row["exp_id"])
         row["pbs_output_log"] = str(BUNDLE_ROOT / "logs" / ("%s.pbs.out" % row["exp_id"]))
+        row["pbs_account"] = DEFAULT_PBS_ACCOUNT
         rows.append(row)
     return rows
 
@@ -326,7 +342,7 @@ def submit_new(rows, dry_run=False):
         else:
             try:
                 job_id = subprocess.check_output(
-                    ["qsub", row["pbs_path"]],
+                    ["qsub", "-A", row.get("pbs_account", DEFAULT_PBS_ACCOUNT), row["pbs_path"]],
                     universal_newlines=True,
                     stderr=subprocess.STDOUT,
                 ).strip().split()[0]
@@ -387,6 +403,7 @@ def resume_existing(user, dry_run=False):
     registry = {r["exp_id"]: r for r in read_csv(BUNDLE_ROOT / "summaries" / "m1_300k_master_registry.csv")}
     submitted = {r["exp_id"]: r for r in read_csv(BUNDLE_ROOT / "summaries" / "m1_300k_submitted.csv")}
     attempts = read_csv(BUNDLE_ROOT / "summaries" / "m1_300k_scheduler_attempts.csv")
+    stoplist = read_stoplist()
     latest = {}
     for row in attempts:
         latest[row["exp_id"]] = row
@@ -404,6 +421,8 @@ def resume_existing(user, dry_run=False):
     rows = []
     new_attempts = []
     for exp_id in sorted(registry):
+        if exp_id in stoplist:
+            continue
         if exp_id not in latest or exp_id not in submitted:
             continue
         attempt = latest[exp_id]
@@ -418,7 +437,11 @@ def resume_existing(user, dry_run=False):
             err = ""
         else:
             try:
-                new_job = subprocess.check_output(["qsub", submitted[exp_id]["pbs_path"]], universal_newlines=True, stderr=subprocess.STDOUT).strip().split()[0]
+                new_job = subprocess.check_output(
+                    ["qsub", "-A", DEFAULT_PBS_ACCOUNT, submitted[exp_id]["pbs_path"]],
+                    universal_newlines=True,
+                    stderr=subprocess.STDOUT,
+                ).strip().split()[0]
                 status = "submitted"
                 err = ""
             except subprocess.CalledProcessError as exc:

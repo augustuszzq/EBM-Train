@@ -1,0 +1,29 @@
+benchmark:
+  name: celebahq256
+  conditional: false
+  num_classes: 0
+  image_size: 256
+  data_root: /eagle/lc-mpi/Zhiqing/polaris_ebm/data/celeba/celeba-lmdb
+  split_train: train
+  split_val: validation
+
+model:
+  family: ebm_conv
+  n_f: 96
+  note: dataset-ready config; confirm 256x256 backbone before long training
+
+train:
+  steps: 300000
+  batch_size: 32
+  K: 100
+  lr: 0.0001
+
+pipeline:
+  pipe_stages: 1
+  weight_mode: deep_only
+  last2_beta: 0.01
+  stage_weights: [1.0]
+
+eval:
+  num_images: 50000
+  classifier_metric: fid

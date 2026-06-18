@@ -101,6 +101,24 @@ def get_benchmark_data_spec(name: str) -> BenchmarkDataSpec:
             train_split="train",
             val_split="valid",
         )
+    if key in {"celebahq256", "celeba_hq_256", "celeba-hq-256", "celeba256"}:
+        return BenchmarkDataSpec(
+            name="celebahq256",
+            conditional=False,
+            num_classes=0,
+            image_size=256,
+            train_split="train",
+            val_split="validation",
+        )
+    if key in {"celebahq256_latent", "celeba_hq_256_latent", "celeba-hq-256-latent", "celeba256_latent"}:
+        return BenchmarkDataSpec(
+            name="celebahq256_latent",
+            conditional=False,
+            num_classes=0,
+            image_size=32,
+            train_split="train",
+            val_split="validation",
+        )
     raise ValueError(f"unsupported benchmark name: {name}")
 
 

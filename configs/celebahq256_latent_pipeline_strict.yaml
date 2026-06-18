@@ -1,0 +1,30 @@
+benchmark:
+  name: celebahq256_latent
+  conditional: false
+  num_classes: 0
+  image_size: 32
+  data_root: /eagle/lc-mpi/Zhiqing/polaris_ebm/data/celeba/celeba-latents/sd-vae-ft-ema-scale018215
+  split_train: train
+  split_val: validation
+
+model:
+  family: ebm_conv
+  n_f: 64
+  input_channels: 4
+  note: frozen VAE latent benchmark; EBM operates on 4x32x32 latents
+
+train:
+  steps: 300000
+  batch_size: 64
+  K: 100
+  lr: 0.0001
+
+pipeline:
+  pipe_stages: 4
+  weight_mode: uniform
+  last2_beta: 0.01
+  stage_weights: [0.25, 0.25, 0.25, 0.25]
+
+eval:
+  num_images: 50000
+  classifier_metric: fid_after_vae_decode

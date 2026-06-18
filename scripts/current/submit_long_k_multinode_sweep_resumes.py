@@ -3,6 +3,7 @@
 
 import argparse
 import csv
+import os
 import re
 import shutil
 import subprocess
@@ -145,6 +146,7 @@ def latest_attempt_by_exp(attempts):
 def main():
     parser = argparse.ArgumentParser("Submit resume successors for multi-node long-K sweep")
     parser.add_argument("--bundle-root", default=str(DEFAULT_BUNDLE))
+    parser.add_argument("--account", default=os.environ.get("PBS_ACCOUNT", "sbi-fair"))
     parser.add_argument("--user", default="kevienzzq")
     parser.add_argument("--max-new", type=int, default=100)
     parser.add_argument("--dry-run", action="store_true")
@@ -201,7 +203,7 @@ def main():
         else:
             try:
                 new_job_id = subprocess.check_output(
-                    ["qsub", base["pbs_path"]],
+                    ["qsub", "-A", args.account, base["pbs_path"]],
                     universal_newlines=True,
                     stderr=subprocess.STDOUT,
                 ).strip().split()[0]
