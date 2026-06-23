@@ -1,0 +1,7 @@
+phase_group,family_id,label,horizon_steps,runs,seeds,best_fid_mean,best_fid_std,best_fid_median,final_fid_mean,final_fid_std,final_fid_median
+O3,single_P1_terminal,Single terminal,300000,2,"2,3",58.421,2.871,58.421,61.868,2.004,61.868
+O3,single_P2_equal,Single P2 equal,300000,2,"2,3",55.670,0.554,55.670,62.990,1.910,62.990
+O3,single_P2_deepest,Single P2 deepest,300000,2,"2,3",55.926,1.878,55.926,64.663,3.401,64.663
+O3,ddp_P1_terminal,DDP terminal,300000,4,"2,3,4,5",55.391,1.917,54.987,65.402,5.210,65.399
+O3,pipe_P4_equal,Pipeline P4 equal,300000,4,"2,3,4,5",52.881,2.399,52.890,71.823,12.134,70.465
+O3,pipe_P2_equal,pipe_P2_equal,300000,2,"2,3",54.712,1.835,54.712,69.620,1.819,69.620

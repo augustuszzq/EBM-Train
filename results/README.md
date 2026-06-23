@@ -5,6 +5,7 @@ This directory contains lightweight, collaborator-facing result tables. It is in
 ## Layout
 
 - `current_cifar/`: canonical CIFAR paper-result tables, including FID-vs-step trajectories and endpoint summaries.
+- `current_cifar/paper_ready/`: paper-facing current-CIFAR tables and SVG figures generated from the canonical current-CIFAR CSVs.
 - `long_k/`: original CIFAR long-K scaling summaries. These files are currently rolling placeholders until the long-K jobs finish and the collector is rerun.
 - `batch_scaling/`: K400 batch-size scaling summaries. These files are currently rolling placeholders until the collector is rerun.
 - `multinode_scaling/`: 16/32-GPU long-K multinode summaries. These files are currently rolling placeholders until the collector is rerun.
@@ -21,6 +22,28 @@ This directory contains lightweight, collaborator-facing result tables. It is in
 - `current_cifar/ablation_final_summary.csv`: final/best summary for current CIFAR ablations.
 - `current_cifar/ablation_500k_summary.csv`: 500k long-horizon summary.
 - `current_cifar/pipeline_then_weighting_replay_summary.csv`: replay summary for the pipeline-then-weighting analysis.
+
+## Current CIFAR Paper-Ready Assets
+
+Use these for paper drafting before reaching back into raw run directories:
+
+- `current_cifar/paper_ready/main_500k_family_summary.csv`: 500k family-level mean/std/median table grouped by `family_id`.
+- `current_cifar/paper_ready/main_300k_o3_summary.csv`: 300k O3 seed top-up table.
+- `current_cifar/paper_ready/shallow_chain_o5_summary.csv`: O5 shallow-chain control table.
+- `current_cifar/paper_ready/trajectory_coverage.csv`: complete 5k-grid audit for all 62 current-CIFAR logical runs.
+- `current_cifar/paper_ready/fid_vs_step_main_500k.svg`: seed-level and mean 500k trajectory figure.
+- `current_cifar/paper_ready/pipeline_equal_vs_deepest_500k.svg`: mechanism ablation figure.
+- `current_cifar/paper_ready/shallow_chain_control_best_fid.svg`: shallow-chain control figure.
+
+Regenerate them with:
+
+```bash
+python3.11 scripts/current/build_current_cifar_paper_assets.py
+```
+
+The paper-ready summaries intentionally group quality results by `family_id`.
+This prevents the same canonical method family from being split by raw runtime
+labels such as `pipeline` versus `strict_pipeline`.
 
 ## Training Time Semantics
 

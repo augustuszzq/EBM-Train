@@ -1,0 +1,8 @@
+path,type,source
+main_500k_family_summary.csv,table,training_time_by_run.csv
+main_300k_o3_summary.csv,table,training_time_by_run.csv
+shallow_chain_o5_summary.csv,table,training_time_by_run.csv
+trajectory_coverage.csv,audit,fid_vs_step_with_wallclock.csv
+fid_vs_step_main_500k.svg,figure,fid_vs_step_with_wallclock.csv
+pipeline_equal_vs_deepest_500k.svg,figure,training_time_by_run.csv
+shallow_chain_control_best_fid.svg,figure,training_time_by_run.csv
